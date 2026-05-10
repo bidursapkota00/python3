@@ -2,7 +2,7 @@
 
 ## 3.1 Keywords
 
-**Keywords** are reserved words in Python that have predefined meanings and cannot be used as variable names, function names, or identifiers. They are case-sensitive. Python 3 has **35 keywords**:
+Keywords are reserved words in Python that have predefined meanings and cannot be used as variable names, function names, or identifiers. They are case-sensitive. Python 3 has 35 keywords:
 
 ```
 False      None       True       and        as
@@ -27,7 +27,7 @@ print(len(keyword.kwlist))  # 35
 
 ## 3.2 Basic Data Types
 
-Python is **dynamically typed** — variable types are determined at runtime, and no explicit type declaration is needed.
+Python is dynamically typed — variable types are determined at runtime, and no explicit type declaration is needed.
 
 ### Numeric Types
 
@@ -37,7 +37,7 @@ Python is **dynamically typed** — variable types are determined at runtime, an
 
 ### Text Type
 
-- **`str`** — Sequence of Unicode characters, enclosed in single (`'...'`), double (`"..."`), or triple quotes (`'''...'''` / `"""..."""`). Strings are **immutable**. Example: `name = "Python"`
+- **`str`** — Sequence of Unicode characters, enclosed in single (`'...'`), double (`"..."`), or triple quotes (`'''...'''` / `"""..."""`). Strings are immutable. Example: `name = "Python"`
 
 ### Boolean Type
 
@@ -76,7 +76,7 @@ bool("hello")  # True (non-empty string)
 
 ### Variables
 
-A **variable** is a name that refers to a value stored in memory. Python uses **dynamic typing** — the type is inferred from the assigned value. No declaration keyword is needed.
+A variable is a name that refers to a value stored in memory. Python uses dynamic typing — the type is inferred from the assigned value. No declaration keyword is needed.
 
 ```python
 x = 10          # int
@@ -101,7 +101,7 @@ a, b = b, a              # swap values
 
 ### User Input
 
-The `input()` function reads input from the user as a **string**. You must explicitly convert it for numeric use.
+The `input()` function reads input from the user as a string. You must explicitly convert it for numeric use.
 
 ```python
 name = input("Enter your name: ")        # returns str
@@ -122,9 +122,9 @@ print(f"Name: {name}, Age: {age}")  # f-string formatting
 
 ## 3.4 Logic and Comparison Operations
 
-> 📝 **What do you mean by operators? Explain different types of operators available in python with example. [2+4 marks] (2081 Ashwin - IOE)**
+> **What do you mean by operators? Explain different types of operators available in python with example. [2+4 marks] (2081 Ashwin - IOE)**
 
-An **operator** is a special symbol or keyword that performs an operation on one or more operands (values/variables). Python supports seven types of operators:
+An operator is a special symbol or keyword that performs an operation on one or more operands (values/variables). Python supports seven types of operators:
 
 ### Arithmetic Operators
 
@@ -267,7 +267,7 @@ result = "Even" if x % 2 == 0 else "Odd"
 
 **Example — Positive, Negative or Zero check:**
 
-> 📝 **Write a program that takes a number from the user and checks whether it is positive, negative, or zero using conditional statements.**
+> **Write a program that takes a number from the user and checks whether it is positive, negative, or zero using conditional statements.**
 
 ```python
 num = float(input("Enter a number: "))
@@ -281,7 +281,7 @@ else:
 
 **Example — Simple calculator using conditionals:**
 
-> 📝 **Write a program that reads two numbers and an operator (+, -, \*, /) from the user and performs the corresponding arithmetic operation. Handle division by zero.**
+> **Write a program that reads two numbers and an operator (+, -, \*, /) from the user and performs the corresponding arithmetic operation. Handle division by zero.**
 
 ```python
 a = float(input("Enter first number: "))
@@ -359,7 +359,7 @@ for i in range(10):
 
 ### `else` Clause with Loops
 
-The `else` block executes only if the loop completes **without** encountering `break`.
+The `else` block executes only if the loop completes without encountering `break`.
 
 ```python
 for i in range(5):
@@ -380,7 +380,7 @@ for i in range(1, 4):
 
 **Example — Multiplication table:**
 
-> 📝 **Write a program using a `for` loop to print the multiplication table of a given number.**
+> **Write a program using a `for` loop to print the multiplication table of a given number.**
 
 ```python
 num = int(input("Enter a number: "))
@@ -390,7 +390,7 @@ for i in range(1, 11):
 
 **Example — Factorial using both iterative and recursive approaches:**
 
-> 📝 **Write a program to find the factorial of a number using both iterative (loop) and recursive approaches. [3.6 Loop, 3.8 Recursion function call]**
+> **Write a program to find the factorial of a number using both iterative (loop) and recursive approaches. [3.6 Loop, 3.8 Recursion function call]**
 
 ```python
 # Iterative approach
@@ -413,7 +413,7 @@ print(f"Recursive: {factorial_rec(num)}")
 
 ## 3.7 Functions
 
-A **function** is a reusable block of code that performs a specific task. Functions promote modularity, code reuse, and readability.
+A function is a reusable block of code that performs a specific task. Functions promote modularity, code reuse, and readability.
 
 ### Defining and Calling a Function
 
@@ -514,7 +514,7 @@ print(count)   # 1
 
 **Example — Prime check function:**
 
-> 📝 **Write a function `is_prime(n)` that returns `True` if it is a prime number, else `False`. Use this function to display all prime numbers between 1 and 100.**
+> **Write a function `is_prime(n)` that returns `True` if it is a prime number, else `False`. Use this function to display all prime numbers between 1 and 100.**
 
 ```python
 def is_prime(n):
@@ -533,9 +533,9 @@ for num in range(1, 101):
 
 ## 3.8 Recursion Function Call
 
-> 📝 **Define recursive function. Write a program to find the nth term of Fibonacci series using recursive function. [2+4 marks] (2082 Baishakh - IOE)**
+> **Define recursive function. Write a program to find the nth term of Fibonacci series using recursive function. [2+4 marks] (2082 Baishakh - IOE)**
 
-**Recursion** is a technique where a function calls itself to solve a problem by breaking it into smaller, self-similar sub-problems. Every recursive function must have:
+Recursion is a technique where a function calls itself to solve a problem by breaking it into smaller, self-similar sub-problems. Every recursive function must have:
 
 - **Base case** — A condition that stops the recursion and returns a value directly.
 - **Recursive case** — The function calls itself with modified arguments, moving toward the base case.
