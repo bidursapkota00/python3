@@ -1,3 +1,9 @@
+# Advanced Computer Programming (ENCT 153)
+
+**Lecture: 3**  
+**Tutorial: 1**  
+**Practical: 3**
+
 ## 1 Programming Paradigms (2 hours)
 
 - 1.1 Introduction
@@ -88,3 +94,25 @@
 - 7.12 Applications of numPy random number generation
 - 7.13 Applications of numPy statistics
 - 7.14 Applications of numPy linear algebra
+
+## Syllabus Mark Distribution
+
+| Chapter   | Hours  | Mark distribution\* |
+| --------- | ------ | ------------------- |
+| 1         | 2      | 4                   |
+| 2         | 3      | 4                   |
+| 3         | 5      | 6                   |
+| 4         | 8      | 10                  |
+| 5         | 12     | 18                  |
+| 6         | 5      | 6                   |
+| 7         | 10     | 12                  |
+| **Total** | **45** | **60**              |
+
+## References
+
+1. Gries, P., Campbell, J., Montojo, J. (2017). _Practical programming: An introduction to computer science using Python 3.6_. Pragmatic Bookshelf.
+2. Savaliya, M.T., Maurya, R.K., Magar, G.M. (2010). _Programming through Python_. Sybgen Learning India.
+3. Lanaro, G., Nguyen, Q., Kasampalis, S. (2019). _Advanced Python programming: Build high performance, concurrent, and multi-threaded apps with Python using proven design patterns_. Packt Publishing.
+4. Summerfield, M. (2018). _Programming in Python 3_. Pearson Education.
+5. Brown, M.C. (2018). _Python: The complete reference_. McGraw Hill.
+6. Hetland, M.L. (2017). _Beginning Python: From novice to professional_. Apress.
