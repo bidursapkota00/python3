@@ -22,7 +22,8 @@ md = markdown.Markdown(extensions=[
     "toc",          # table of contents
     "meta",         # metadata
     "nl2br",        # newline to <br>
-])
+    "sane_lists",
+], tab_length=2)
 body_html = md.convert(md_text)
 
 # Fix image paths — remove leading slash
