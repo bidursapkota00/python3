@@ -2,3 +2,4 @@ venv/
 *.pdf
 preview.html
 merged.md
+test.py
