@@ -26,25 +26,25 @@ print(len(keyword.kwlist))  # 35
 
 ## 3.2 Basic Data Types
 
-Python is dynamically typed — variable types are determined at runtime, and no explicit type declaration is needed.
+Python is dynamically typed. Variable types are determined at runtime, and no explicit type declaration is needed.
 
 ### Numeric Types
 
-- **`int`** — Whole numbers, positive or negative, with no size limit (arbitrary precision). Example: `x = 42`
-- **`float`** — Numbers with a decimal point, represented with double precision (64-bit IEEE 754). Example: `pi = 3.14`
-- **`complex`** — Numbers with a real and imaginary part, written with a `j` suffix. Example: `z = 3 + 5j`. Access parts with `z.real` and `z.imag`.
+- **`int`**: Whole numbers, positive or negative, with no size limit (arbitrary precision). Example: `x = 42`
+- **`float`**: Numbers with a decimal point, represented with double precision (64-bit IEEE 754). Example: `pi = 3.14`
+- **`complex`**: Numbers with a real and imaginary part, written with a `j` suffix. Example: `z = 3 + 5j`. Access parts with `z.real` and `z.imag`.
 
 ### Text Type
 
-- **`str`** — Sequence of Unicode characters, enclosed in single (`'...'`), double (`"..."`), or triple quotes (`'''...'''` / `"""..."""`). Strings are immutable. Example: `name = "Python"`
+- **`str`**: Sequence of Unicode characters, enclosed in single (`'...'`), double (`"..."`), or triple quotes (`'''...'''` / `"""..."""`). Strings are immutable. Example: `name = "Python"`
 
 ### Boolean Type
 
-- **`bool`** — Has only two values: `True` and `False`. `bool` is a subclass of `int` (`True == 1`, `False == 0`). Used in conditional and logical expressions.
+- **`bool`**: Has only two values: `True` and `False`. `bool` is a subclass of `int` (`True == 1`, `False == 0`). Used in conditional and logical expressions.
 
 ### None Type
 
-- **`NoneType`** — Has a single value: `None`. Represents the absence of a value. Commonly used as a default return value of functions and for initializing variables.
+- **`NoneType`**: Has a single value: `None`. Represents the absence of a value. Commonly used as a default return value of functions and for initializing variables.
 
 ### Type Checking and Conversion
 
@@ -54,13 +54,13 @@ print(type(x))           # <class 'int'>
 print(isinstance(x, int)) # True
 ```
 
-**Implicit conversion** (coercion) — Python automatically converts smaller types to larger types during operations to prevent data loss:
+**Implicit conversion** (coercion): Python automatically converts smaller types to larger types during operations to prevent data loss:
 
 ```python
 result = 10 + 3.5   # int + float → float (13.5)
 ```
 
-**Explicit conversion** (casting) — The programmer manually converts using built-in functions:
+**Explicit conversion** (casting): The programmer manually converts using built-in functions:
 
 ```python
 int("25")      # 25 (string → int)
@@ -75,7 +75,7 @@ bool("hello")  # True (non-empty string)
 
 ### Variables
 
-A variable is a name that refers to a value stored in memory. Python uses dynamic typing — the type is inferred from the assigned value. No declaration keyword is needed.
+A variable is a name that refers to a value stored in memory. Python uses dynamic typing. The type is inferred from the assigned value. No declaration keyword is needed.
 
 ```python
 x = 10          # int
@@ -188,8 +188,8 @@ Operate on integers at the binary level.
 
 Compare memory locations (whether two variables reference the **same object**).
 
-- `is` — Returns `True` if both point to the same object. Example: `x is y`
-- `is not` — Returns `True` if they point to different objects. Example: `x is not y`
+- `is`: Returns `True` if both point to the same object. Example: `x is y`
+- `is not`: Returns `True` if they point to different objects. Example: `x is not y`
 
 ```python
 a = [1, 2]
@@ -204,8 +204,8 @@ print(a == c)      # True (values are equal)
 
 Test if a value exists in a sequence (string, list, tuple, set, dict).
 
-- `in` — Returns `True` if value is found. Example: `3 in [1, 2, 3]` → `True`
-- `not in` — Returns `True` if value is not found. Example: `4 not in [1, 2, 3]` → `True`
+- `in`: Returns `True` if value is found. Example: `3 in [1, 2, 3]` → `True`
+- `not in`: Returns `True` if value is not found. Example: `4 not in [1, 2, 3]` → `True`
 
 ### Operator Precedence (highest to lowest)
 
@@ -264,7 +264,7 @@ if x > 0:
 result = "Even" if x % 2 == 0 else "Odd"
 ```
 
-**Example — Positive, Negative or Zero check:**
+**Example: Positive, Negative or Zero check:**
 
 > **Write a program that takes a number from the user and checks whether it is positive, negative, or zero using conditional statements.**
 
@@ -278,7 +278,7 @@ else:
     print("Zero")
 ```
 
-**Example — Simple calculator using conditionals:**
+**Example: Simple calculator using conditionals:**
 
 > **Write a program that reads two numbers and an operator (+, -, \*, /) from the user and performs the corresponding arithmetic operation. Handle division by zero.**
 
@@ -321,7 +321,7 @@ for item in [10, 20, 30]:
     print(item)
 ```
 
-**`range()` function:** `range(start, stop, step)` — generates a sequence of integers from `start` (inclusive) to `stop` (exclusive) with a given `step`.
+**`range()` function:** `range(start, stop, step)` generates a sequence of integers from `start` (inclusive) to `stop` (exclusive) with a given `step`.
 
 ```python
 range(5)        # 0, 1, 2, 3, 4
@@ -343,9 +343,9 @@ while count <= 5:
 
 ### Loop Control Statements
 
-- **`break`** — Exits the loop immediately.
-- **`continue`** — Skips the rest of the current iteration and moves to the next.
-- **`pass`** — Does nothing; acts as a placeholder.
+- **`break`**: Exits the loop immediately.
+- **`continue`**: Skips the rest of the current iteration and moves to the next.
+- **`pass`**: Does nothing. It acts as a placeholder.
 
 ```python
 for i in range(10):
@@ -377,7 +377,7 @@ for i in range(1, 4):
     print()
 ```
 
-**Example — Multiplication table:**
+**Example: Multiplication table:**
 
 > **Write a program using a `for` loop to print the multiplication table of a given number.**
 
@@ -387,7 +387,7 @@ for i in range(1, 11):
     print(f"{num} x {i} = {num * i}")
 ```
 
-**Example — Factorial using both iterative and recursive approaches:**
+**Example: Factorial using both iterative and recursive approaches:**
 
 > **Write a program to find the factorial of a number using both iterative (loop) and recursive approaches. [3.6 Loop, 3.8 Recursion function call]**
 
@@ -437,7 +437,7 @@ A function without a `return` statement returns `None` by default.
 
 ### Types of Arguments
 
-**Positional arguments** — matched by position:
+**Positional arguments** are matched by position:
 
 ```python
 def power(base, exp):
@@ -446,7 +446,7 @@ def power(base, exp):
 power(2, 3)    # base=2, exp=3 → 8
 ```
 
-**Default arguments** — have a default value, making them optional:
+**Default arguments** have a default value, making them optional:
 
 ```python
 def greet(name, msg="Hello"):
@@ -456,13 +456,13 @@ greet("Bob")              # Hello, Bob!
 greet("Bob", "Welcome")   # Welcome, Bob!
 ```
 
-**Keyword arguments** — passed by name, allowing any order:
+**Keyword arguments** are passed by name, allowing any order:
 
 ```python
 greet(msg="Hi", name="Bob")   # Hi, Bob!
 ```
 
-**Arbitrary positional arguments (`*args`)** — collects extra positional arguments into a tuple:
+**Arbitrary positional arguments (`*args`)** collects extra positional arguments into a tuple:
 
 ```python
 def total(*args):
@@ -471,7 +471,7 @@ def total(*args):
 total(1, 2, 3, 4)   # 10
 ```
 
-**Arbitrary keyword arguments (`**kwargs`)\*\* — collects extra keyword arguments into a dictionary:
+**Arbitrary keyword arguments (`**kwargs`)\*\* collects extra keyword arguments into a dictionary:
 
 ```python
 def info(**kwargs):
@@ -483,9 +483,9 @@ info(name="Alice", age=25)
 
 ### Variable Scope
 
-- **Local scope** — Variables defined inside a function. Accessible only within that function.
-- **Global scope** — Variables defined at the module level. Accessible from anywhere in the file.
-- **LEGB rule** — Python resolves names in this order: **L**ocal → **E**nclosing → **G**lobal → **B**uilt-in.
+- **Local scope**: Variables defined inside a function. Accessible only within that function.
+- **Global scope**: Variables defined at the module level. Accessible from anywhere in the file.
+- **LEGB rule**: Python resolves names in this order: **L**ocal → **E**nclosing → **G**lobal → **B**uilt-in.
 
 ```python
 x = 10    # global
@@ -511,7 +511,7 @@ increment()
 print(count)   # 1
 ```
 
-**Example — Prime check function:**
+**Example: Prime check function:**
 
 > **Write a function `is_prime(n)` that returns `True` if it is a prime number, else `False`. Use this function to display all prime numbers between 1 and 100.**
 
@@ -536,8 +536,8 @@ for num in range(1, 101):
 
 Recursion is a technique where a function calls itself to solve a problem by breaking it into smaller, self-similar sub-problems. Every recursive function must have:
 
-- **Base case** — A condition that stops the recursion and returns a value directly.
-- **Recursive case** — The function calls itself with modified arguments, moving toward the base case.
+- **Base case**: A condition that stops the recursion and returns a value directly.
+- **Recursive case**: The function calls itself with modified arguments, moving toward the base case.
 
 Without a proper base case, the function will call itself infinitely and raise a `RecursionError` (Python's default recursion limit is 1000).
 
@@ -589,7 +589,7 @@ print(f"Fibonacci({n}) = {fibonacci(n)}")
 - **Iteration** uses loops, is generally faster and more memory-efficient, but can be less intuitive for problems with a naturally recursive structure (e.g., tree traversal, Tower of Hanoi).
 - The naive recursive Fibonacci has exponential time complexity O(2ⁿ) because it recalculates the same values repeatedly. The iterative version runs in O(n).
 
-**Factorial — iterative vs recursive comparison:**
+**Factorial: iterative vs recursive comparison:**
 
 ```python
 # Iterative
