@@ -4,7 +4,7 @@
 
 Keywords are reserved words in Python that have predefined meanings and cannot be used as variable names, function names, or identifiers. They are case-sensitive. Python 3 has 35 keywords:
 
-```
+```text
 False      None       True       and        as
 assert     async      await      break      class
 continue   def        del        elif       else
@@ -186,7 +186,7 @@ Operate on integers at the binary level.
 
 ### Identity Operators
 
-Compare memory locations (whether two variables reference the **same object**).
+Compare memory locations (whether two variables reference the same object).
 
 - `is`: Returns `True` if both point to the same object. Example: `x is y`
 - `is not`: Returns `True` if they point to different objects. Example: `x is not y`
@@ -556,7 +556,7 @@ print(factorial(5))   # 120
 
 **Execution trace for `factorial(4)`:**
 
-```
+```text
 factorial(4) → 4 * factorial(3)
                    → 3 * factorial(2)
                               → 2 * factorial(1)
