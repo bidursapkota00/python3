@@ -462,7 +462,7 @@ greet("Bob", "Welcome")   # Welcome, Bob!
 greet(msg="Hi", name="Bob")   # Hi, Bob!
 ```
 
-**Arbitrary positional arguments (`*args`)** collects extra positional arguments into a tuple:
+**Arbitrary positional arguments ( \*args )** collects extra positional arguments into a tuple:
 
 ```python
 def total(*args):
@@ -471,7 +471,7 @@ def total(*args):
 total(1, 2, 3, 4)   # 10
 ```
 
-**Arbitrary keyword arguments (`**kwargs`)\*\* collects extra keyword arguments into a dictionary:
+**Arbitrary keyword arguments ( \*\*kwargs )** collects extra keyword arguments into a dictionary:
 
 ```python
 def info(**kwargs):
