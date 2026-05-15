@@ -165,7 +165,7 @@ Operate on integers at the binary level.
 | Operator | Description | Example                         |
 | -------- | ----------- | ------------------------------- |
 | `&`      | AND         | `5 & 3` → `1`                   |
-| `\|`     | OR          | `5 \| 3` → `7`                  |
+| \|       | OR          | `5 \| 3` → `7`                  |
 | `^`      | XOR         | `5 ^ 3` → `6`                   |
 | `~`      | NOT         | `~5` → `-6`. Use `x = -(x + 1)` |
 | `<<`     | Left shift  | `5 << 1` → `10`                 |
@@ -218,7 +218,7 @@ Test if a value exists in a sequence (string, list, tuple, set, dict).
 | **5**           | `<<`, `>>`                                                       | Bitwise Left and Right Shifts                     |
 | **6**           | `&`                                                              | Bitwise AND                                       |
 | **7**           | `^`                                                              | Bitwise XOR                                       |
-| **8**           | `\|`                                                             | Bitwise OR                                        |
+| **8**           | \|                                                               | Bitwise OR                                        |
 | **9**           | `==`, `!=`, `<`, `>`, `<=`, `>=`, `is`, `is not`, `in`, `not in` | Comparisons, Identity, Membership                 |
 | **10**          | `not`                                                            | Logical NOT                                       |
 | **11**          | `and`                                                            | Logical AND                                       |
