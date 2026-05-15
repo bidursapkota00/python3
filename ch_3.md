@@ -207,7 +207,22 @@ Test if a value exists in a sequence (string, list, tuple, set, dict).
 
 ### Operator Precedence (highest to lowest)
 
-`**` → `~, +, -` (unary) → `*, /, //, %` → `+, -` → `<<, >>` → `&` → `^` → `|` → `==, !=, <, >, <=, >=, is, is not, in, not in` → `not` → `and` → `or`
+| Precedence      | Operator(s)                                                      | Description                                       |
+| :-------------- | :--------------------------------------------------------------- | :------------------------------------------------ |
+| **1 (Highest)** | `**`                                                             | Exponentiation (Power)                            |
+| **2**           | `~`, `+`, `-`                                                    | Bitwise NOT, Unary Plus, Unary Minus              |
+| **3**           | `*`, `/`, `//`, `%`                                              | Multiplication, Division, Floor Division, Modulus |
+| **4**           | `+`, `-`                                                         | Addition, Subtraction                             |
+| **5**           | `<<`, `>>`                                                       | Bitwise Left and Right Shifts                     |
+| **6**           | `&`                                                              | Bitwise AND                                       |
+| **7**           | `^`                                                              | Bitwise XOR                                       |
+| **8**           | `\|`                                                             | Bitwise OR                                        |
+| **9**           | `==`, `!=`, `<`, `>`, `<=`, `>=`, `is`, `is not`, `in`, `not in` | Comparisons, Identity, Membership                 |
+| **10**          | `not`                                                            | Logical NOT                                       |
+| **11**          | `and`                                                            | Logical AND                                       |
+| **12 (Lowest)** | `or`                                                             | Logical OR                                        |
+
+**Note:** Operators on the same line have the same precedence and are evaluated from left to right (except for exponentiation, which is right-to-left).
 
 ## 3.5 Conditional Statements
 
