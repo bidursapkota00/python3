@@ -22,8 +22,6 @@ print(keyword.kwlist)
 print(len(keyword.kwlist))  # 35
 ```
 
-**Soft keywords** (e.g., `case`, `_` inside `match` statements) are reserved only in specific contexts and can be used as identifiers elsewhere.
-
 ## 3.2 Basic Data Types
 
 Python is dynamically typed. Variable types are determined at runtime, and no explicit type declaration is needed.
@@ -114,7 +112,7 @@ The `print()` function outputs data to the console.
 
 ```python
 print("Hello", name)                # space-separated by default
-print("Age:", age, sep=" = ")        # custom separator
+print("Age", age, sep=": ")        # custom separator
 print("Line1", end="")              # suppress newline
 print(f"Name: {name}, Age: {age}")  # f-string formatting
 ```
@@ -162,14 +160,14 @@ Return `True` or `False`.
 
 Operate on integers at the binary level.
 
-| Operator | Description | Example         |
-| -------- | ----------- | --------------- |
-| `&`      | AND         | `5 & 3` → `1`   |
-| `\|`     | OR          | `5 \| 3` → `7`  |
-| `^`      | XOR         | `5 ^ 3` → `6`   |
-| `~`      | NOT         | `~5` → `-6`     |
-| `<<`     | Left shift  | `5 << 1` → `10` |
-| `>>`     | Right shift | `5 >> 1` → `2`  |
+| Operator | Description | Example                         |
+| -------- | ----------- | ------------------------------- |
+| `&`      | AND         | `5 & 3` → `1`                   |
+| `\|`     | OR          | `5 \| 3` → `7`                  |
+| `^`      | XOR         | `5 ^ 3` → `6`                   |
+| `~`      | NOT         | `~5` → `-6`. Use `x = -(x + 1)` |
+| `<<`     | Left shift  | `5 << 1` → `10`                 |
+| `>>`     | Right shift | `5 >> 1` → `2`                  |
 
 ### Assignment Operators
 
