@@ -22,6 +22,8 @@ print(keyword.kwlist)
 print(len(keyword.kwlist))  # 35
 ```
 
+**Soft keywords** (e.g., `case`, `_` inside `match` statements) are reserved only in specific contexts and can be used as identifiers elsewhere.
+
 ## 3.2 Basic Data Types
 
 Python is dynamically typed. Variable types are determined at runtime, and no explicit type declaration is needed.
@@ -275,6 +277,62 @@ if x > 0:
 
 ```python
 result = "Even" if x % 2 == 0 else "Odd"
+```
+
+### `match-case` (Python 3.10+)
+
+This is the closest thing to a switch statement in Python.
+
+```py
+day = 3
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case _:
+        print("Invalid day")
+```
+
+`match` = switch  
+`case` = case  
+`_` = default case (like default in C/Java)
+
+### With conditions inside cases:
+
+```py
+x = 10
+
+match x:
+    case n if n < 0:
+        print("Negative")
+    case 0:
+        print("Zero")
+    case n if n > 0:
+        print("Positive")
+```
+
+### Dictionary-based switch (older)
+
+```py
+def monday():
+    return "Monday"
+
+def tuesday():
+    return "Tuesday"
+
+switch = {
+    1: monday,
+    2: tuesday
+}
+
+day = 1
+print(switch.get(day, lambda: "Invalid")())
 ```
 
 **Example: Positive, Negative or Zero check:**
