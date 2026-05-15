@@ -458,27 +458,19 @@ for i in range(1, 11):
     print(f"{num} x {i} = {num * i}")
 ```
 
-**Example: Factorial using both iterative and recursive approaches:**
+**Example: Factorial:**
 
-> **Write a program to find the factorial of a number using both iterative (loop) and recursive approaches. [3.6 Loop, 3.8 Recursion function call]**
+> **Write a program to find the factorial of a number using iterative approach.**
 
 ```python
-# Iterative approach
 def factorial_iter(n):
     result = 1
     for i in range(1, n + 1):
         result *= i
     return result
 
-# Recursive approach
-def factorial_rec(n):
-    if n <= 1:
-        return 1
-    return n * factorial_rec(n - 1)
-
 num = int(input("Enter a number: "))
 print(f"Iterative: {factorial_iter(num)}")
-print(f"Recursive: {factorial_rec(num)}")
 ```
 
 ## 3.7 Functions
@@ -623,18 +615,6 @@ def factorial(n):
     return n * factorial(n - 1)   # recursive case
 
 print(factorial(5))   # 120
-```
-
-**Execution trace for `factorial(4)`:**
-
-```text
-factorial(4) → 4 * factorial(3)
-                   → 3 * factorial(2)
-                              → 2 * factorial(1)
-                                         → 1 (base case)
-                              → 2 * 1 = 2
-                   → 3 * 2 = 6
-             → 4 * 6 = 24
 ```
 
 ### Fibonacci Using Recursion
