@@ -271,6 +271,8 @@ if x > 0:
         print("Positive and Even")
     else:
         print("Positive and Odd")
+else:
+    print("Please enter positive number")
 ```
 
 ### Ternary (Conditional) Expression
