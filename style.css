@@ -8,14 +8,14 @@
 
   @top-right {
     content: "Advanced Computer Programming By Bidur Sapkota";
-    font-family: "Georgia", serif;
+    font-family: "Arial", "Segoe UI", sans-serif;
     font-size: 8pt;
-    color: #555;
+    color: #777;
   }
 
   @bottom-right {
     content: counter(page);
-    font-family: "Georgia", serif;
+    font-family: "Arial", "Segoe UI", sans-serif;
     font-size: 8pt;
     color: #000;
   }
@@ -27,39 +27,38 @@
 
   @top-right {
     content: "Advanced Computer Programming By Bidur Sapkota";
-    font-family: "Georgia", serif;
+    font-family: "Arial", "Segoe UI", sans-serif;
     font-size: 8pt;
-    color: #555;
+    color: #777;
   }
 
   @bottom-right {
     content: counter(page);
-    font-family: "Georgia", serif;
+    font-family: "Arial", "Segoe UI", sans-serif;
     font-size: 8pt;
     color: #000;
   }
 }
 
-/* ---------- BASE ---------- */
 body {
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 10pt;
-  line-height: 1.75;
-  color: #000;
+  font-family:
+    "Segoe UI", "-apple-system", "BlinkMacSystemFont", "Arial", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #111;
   background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- HEADINGS ---------- */
 h1 {
-  font-family: "Arial", "Helvetica", sans-serif;
-  font-size: 18pt;
+  font-family: "Segoe UI", "-apple-system", "Arial", sans-serif;
+  font-size: 24pt;
   font-weight: 700;
   color: #000;
-  border-bottom: 2.5px solid #000;
-  padding-bottom: 8px;
-  margin-top: 40px;
-  margin-bottom: 16px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   page-break-before: always;
+  letter-spacing: -0.5px;
 }
 
 h1:first-of-type {
@@ -67,19 +66,17 @@ h1:first-of-type {
 }
 
 h2 {
-  font-family: "Arial", "Helvetica", sans-serif;
-  font-size: 13.5pt;
-  font-weight: 700;
+  font-family: "Segoe UI", "-apple-system", "Arial", sans-serif;
+  font-size: 15pt;
+  font-weight: 600;
   color: #000;
-  border-left: 4px solid #000;
-  padding-left: 10px;
-  margin-top: 28px;
-  margin-bottom: 10px;
+  margin-top: 26px;
+  margin-bottom: 12px;
 }
 
 h3 {
-  font-family: "Arial", "Helvetica", sans-serif;
-  font-size: 11.5pt;
+  font-family: "Segoe UI", "-apple-system", "Arial", sans-serif;
+  font-size: 12.5pt;
   font-weight: 600;
   color: #000;
   margin-top: 20px;
@@ -87,87 +84,82 @@ h3 {
 }
 
 h4 {
-  font-family: "Arial", "Helvetica", sans-serif;
-  font-size: 10.5pt;
+  font-family: "Segoe UI", "-apple-system", "Arial", sans-serif;
+  font-size: 11pt;
   font-weight: 600;
   color: #000;
-  margin-top: 14px;
+  margin-top: 16px;
   margin-bottom: 6px;
 }
 
-/* ---------- PARAGRAPHS ---------- */
 p {
-  margin: 0 0 10px 0;
+  margin: 0 0 14px 0;
   text-align: justify;
-  hyphens: auto;
 }
 
-/* ---------- CODE BLOCKS ---------- */
-pre {
-  background-color: #f5f5f5;
-  padding: 10px 14px;
-  margin: 14px 0;
+.codehilite {
+  padding: 14px 18px;
+  margin: 16px 0;
   page-break-inside: auto;
-  font-family: "Courier New", "Consolas", monospace;
-  font-size: 8pt;
-  line-height: 1.55;
-  color: #000;
+  break-inside: auto;
+}
+
+.codehilite pre {
+  margin: 0;
+  padding: 0;
+  font-family: "Consolas", "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  page-break-inside: auto;
+  break-inside: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
 code {
-  font-family: "Courier New", "Consolas", monospace;
-  font-size: 8.5pt;
-  background-color: #eee;
-  border: 1px solid #999;
-  border-radius: 2px;
-  padding: 1px 4px;
-  color: #000;
+  font-family: "Consolas", "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 9pt;
+  background-color: #f1f1f4; /* A neutral gray specifically for inline code */
+  padding: 2px 6px;
 }
 
-pre code {
-  background: none;
-  border: none;
+.codehilite code {
+  background: transparent;
   padding: 0;
-  color: inherit;
-  font-size: inherit;
 }
 
-/* ---------- BLOCKQUOTES (Notes/Tips) ---------- */
 blockquote {
-  background: #f0f0f0;
-  border-left: 4px solid #000;
-  margin: 14px 0;
-  padding: 10px 14px;
-  border-radius: 0;
+  background: #f8f9fa;
+  margin: 16px 0;
+  padding: 14px 18px;
+  font-size: 10pt;
   font-style: italic;
-  font-size: 9.5pt;
-  color: #000;
+  color: #333;
   page-break-inside: avoid;
+  p {
+    margin: 0;
+  }
 }
 
-/* ---------- TABLES ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 16px 0;
-  font-size: 9pt;
+  margin: 20px 0;
+  font-size: 9.5pt;
   page-break-inside: auto;
 }
 
 th {
-  padding: 8px 10px;
-  font-family: "Arial", sans-serif;
+  padding: 10px 12px;
+  font-family: "Segoe UI", sans-serif;
   font-weight: 600;
-  font-size: 8.5pt;
-  border: 1px solid #000;
+  border: 1px solid #e1e4e8;
   color: #000;
 }
 
 td {
-  padding: 7px 10px;
-  border: 1px solid #000;
+  padding: 9px 12px;
+  border: 1px solid #e1e4e8;
   vertical-align: top;
 }
 
@@ -175,45 +167,40 @@ tr {
   page-break-inside: avoid;
 }
 
-/* ---------- LISTS ---------- */
 ul,
 ol {
-  margin: 8px 0 12px 0;
-  padding-left: 20px;
-  line-height: 1.75;
+  margin: 8px 0 16px 0;
+  padding-left: 24px;
 }
 
 li {
-  margin-bottom: 4px;
-  font-size: 10pt;
+  margin-bottom: 6px;
+  font-size: 10.5pt;
 }
 
-/* ---------- LINKS ---------- */
 a {
-  color: #000;
+  color: #0052cc;
+  text-decoration: none;
+}
+a:hover {
   text-decoration: underline;
 }
 
 /* ---------- IMAGES ---------- */
 img {
   max-width: 100%;
-  max-height: 250mm;
-  padding: 5mm;
+  max-height: 240mm;
   height: auto;
   display: block;
-  margin: 14px auto;
-  border: 1.5px solid #000;
-  border-radius: 0;
+  margin: 20px auto;
 }
 
-/* ---------- HORIZONTAL RULE ---------- */
 hr {
   border: none;
-  border-top: 1.5px solid #000;
-  margin: 28px 0;
+  border-top: 1px solid #eaecef;
+  margin: 32px 0;
 }
 
-/* ---------- STRONG / BOLD ---------- */
 strong {
   font-weight: 700;
   color: #000;

@@ -1,6 +1,7 @@
+import os
 import markdown
 import weasyprint
-import os
+from pygments.formatters import HtmlFormatter
 
 # ── CONFIG ──────────────────────────────────────────
 MD_FILE = "merged.md"       # your markdown file
@@ -14,6 +15,8 @@ YEAR = "2026"
 # Read markdown
 with open(MD_FILE, "r", encoding="utf-8") as f:
     md_text = f.read()
+
+pygments_css = HtmlFormatter(style='default').get_style_defs('.codehilite')
 
 # Convert markdown to HTML
 md = markdown.Markdown(extensions=[
@@ -39,7 +42,10 @@ html = f"""<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>{TITLE}</title>
-    <style>{css_content}</style>
+    <style>
+    {css_content}
+    {pygments_css}
+    </style>
 </head>
 <body>
     {body_html}

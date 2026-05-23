@@ -3,3 +3,4 @@ venv/
 preview.html
 merged.md
 test.py
+.vscode
