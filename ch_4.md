@@ -2,9 +2,9 @@
 
 ## 4.1 Mutable and Immutable Data Types
 
-> 📝 **Explain the concept of mutable and immutable data type in python. [4 marks] (2082 Baishakh - IOE)**
+> Explain the concept of mutable and immutable data type in python. [4 marks] (2082 Baishakh - IOE)
 
-**Mutable objects** can be modified in place after creation — their content changes but their identity (memory address) remains the same. **Immutable objects** cannot be changed once created — any modification creates a new object in memory.
+Mutable objects can be modified in place after creation — their content changes but their identity (memory address) remains the same. Immutable objects cannot be changed once created — any modification creates a new object in memory.
 
 | Category  | Data Types                                          |
 | --------- | --------------------------------------------------- |
@@ -29,13 +29,13 @@ print(id(s))       # different id — new object created
 
 **Why it matters:**
 
-- Immutable objects are **hashable** and can be used as dictionary keys or set elements. Mutable objects like lists cannot.
+- Immutable objects are hashable and can be used as dictionary keys or set elements. Mutable objects like lists cannot.
 - When a mutable object is passed to a function, changes inside the function affect the original object (pass by object reference). Immutable objects are safe from such side effects.
 - Python caches small immutable objects (small integers, short strings) for memory efficiency.
 
 **Example — Total marks from list of dictionaries:**
 
-> 📝 **For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject":"math","marks":80}, {"subject":"science","marks":90}, {"subject":"english","marks":80}]` [4 marks] (2082 Baishakh - IOE)**
+> For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject":"math","marks":80}, {"subject":"science","marks":90}, {"subject":"english","marks":80}]` [4 marks] (2082 Baishakh - IOE)
 
 ```python
 d = [{"subject": "math", "marks": 80},
@@ -50,11 +50,11 @@ print("Total Marks:", total)   # Total Marks: 250
 
 ## 4.2 List and Tuple Data Types
 
-> 📝 **With example, explain following data structures in python: a) List b) Tuple c) Dictionary. [6 marks] (2081 Ashwin - IOE)**
+> With example, explain following data structures in python: a) List b) Tuple c) Dictionary. [6 marks] (2081 Ashwin - IOE)
 
 ### List
 
-A **list** is an ordered, mutable collection that can hold items of different types. Lists are defined using square brackets `[]`.
+A list is an ordered, mutable collection that can hold items of different types. Lists are defined using square brackets `[]`.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -107,7 +107,7 @@ print(nums[::-1])    # [50, 40, 30, 20, 10]
 
 ### Tuple
 
-A **tuple** is an ordered, immutable collection. Tuples are defined using parentheses `()`.
+A tuple is an ordered, immutable collection. Tuples are defined using parentheses `()`.
 
 ```python
 point = (3, 5)
@@ -116,7 +116,7 @@ single = (42,)         # trailing comma needed for single-element tuple
 empty = ()
 ```
 
-Since tuples are immutable, they do **not** support item assignment, append, remove, or any in-place modification. They support indexing, slicing, `count()`, `index()`, `len()`, `in`, concatenation (`+`), and repetition (`*`).
+Since tuples are immutable, they do not support item assignment, append, remove, or any in-place modification. They support indexing, slicing, `count()`, `index()`, `len()`, `in`, concatenation (`+`), and repetition (`*`).
 
 ```python
 t = (10, 20, 30, 20)
@@ -146,7 +146,7 @@ a, b = b, a               # a=2, b=1
 
 **Example — Tuple-List conversion and sorting:**
 
-> 📝 **Write a program to create a tuple of student names, convert it to a list, add a new name, sort the list, and convert it back to a tuple.**
+> Write a program to create a tuple of student names, convert it to a list, add a new name, sort the list, and convert it back to a tuple.
 
 ```python
 students = ("Ram", "Sita", "Hari", "Gita")
@@ -159,7 +159,7 @@ print(students)   # ('Bikash', 'Gita', 'Hari', 'Ram', 'Sita')
 
 ## 4.3 Dictionary Data Types
 
-A **dictionary** is an unordered (insertion-ordered since Python 3.7), mutable collection of key-value pairs. Keys must be unique and immutable (strings, numbers, tuples). Defined using curly braces `{}`.
+A dictionary is an unordered (insertion-ordered since Python 3.7), mutable collection of key-value pairs. Keys must be unique and immutable (strings, numbers, tuples). Defined using curly braces `{}`.
 
 ```python
 student = {"name": "Alice", "age": 21, "grade": "A"}
@@ -213,7 +213,7 @@ print(students[101]["name"])   # "Ram"
 
 **Example — Character frequency counter:**
 
-> 📝 **Write a program to count the frequency of each character in a given string using a dictionary.**
+> Write a program to count the frequency of each character in a given string using a dictionary.
 
 ```python
 text = input("Enter a string: ")
@@ -226,7 +226,7 @@ for ch, count in freq.items():
 
 ## 4.4 Sequence Data Types
 
-A **sequence** is an ordered collection of items that supports indexing, slicing, iteration, and membership testing. Python's built-in sequence types are `str`, `list`, `tuple`, and `range`.
+A sequence is an ordered collection of items that supports indexing, slicing, iteration, and membership testing. Python's built-in sequence types are `str`, `list`, `tuple`, and `range`.
 
 **Common operations shared by all sequence types:**
 
@@ -282,9 +282,9 @@ s.isdigit()         # False
 
 ## 4.5 Two-Dimensional Lists
 
-> 📝 **Using two-dimensional list, write a program to add two matrices and create the third matrix and display it. [4 marks] (2081 Ashwin - IOE)**
+> Using two-dimensional list, write a program to add two matrices and create the third matrix and display it. [4 marks] (2081 Ashwin - IOE)
 
-A **two-dimensional list** (2D list) is a list of lists, commonly used to represent matrices, grids, or tabular data.
+A two-dimensional list (2D list) is a list of lists, commonly used to represent matrices, grids, or tabular data.
 
 **Creating a 2D list:**
 
@@ -359,7 +359,7 @@ print(matrix)   # [[5, 0, 0], [0, 0, 0], [0, 0, 0]]  ← only first row changed
 
 ## 4.6 Set Data Types
 
-A **set** is an unordered, mutable collection of **unique** elements. Sets are defined using curly braces `{}` or the `set()` constructor. Sets do not support indexing or slicing.
+A set is an unordered, mutable collection of unique elements. Sets are defined using curly braces `{}` or the `set()` constructor. Sets do not support indexing or slicing.
 
 ```python
 s = {1, 2, 3, 4, 5}
@@ -405,7 +405,7 @@ d = {fs: "immutable set as key"}
 
 **Example — Set operations demonstration:**
 
-> 📝 **Write a program demonstrating set operations: create two sets of integers, then display their union, intersection, difference, and symmetric difference.**
+> Write a program demonstrating set operations: create two sets of integers, then display their union, intersection, difference, and symmetric difference.
 
 ```python
 A = {1, 2, 3, 4, 5}
@@ -419,9 +419,9 @@ print("Symmetric Difference:", A ^ B)
 
 ## 4.7 Lambda
 
-> 📝 **Explain the significance of lambda function with an example. [2 marks] (2082 Baishakh - IOE)**
+> Explain the significance of lambda function with an example. [2 marks] (2082 Baishakh - IOE)
 
-A **lambda function** is a small, anonymous (unnamed) function defined using the `lambda` keyword. It can take any number of arguments but contains only a **single expression** whose result is implicitly returned.
+A lambda function is a small, anonymous (unnamed) function defined using the `lambda` keyword. It can take any number of arguments but contains only a single expression whose result is implicitly returned.
 
 **Syntax:** `lambda arguments: expression`
 
@@ -433,7 +433,7 @@ add = lambda a, b: a + b
 print(add(3, 4))       # 7
 ```
 
-Lambda functions are most useful when passed as arguments to **higher-order functions** like `map()`, `filter()`, `sorted()`, and `reduce()`.
+Lambda functions are most useful when passed as arguments to higher-order functions like `map()`, `filter()`, `sorted()`, and `reduce()`.
 
 ### Lambda with `map()`
 
@@ -478,7 +478,7 @@ print(product)   # 120
 
 **Example — Filter even numbers and square all numbers:**
 
-> 📝 **Write a program that takes a list of numbers and uses a lambda function with `filter()` to display only the even numbers, and another lambda with `map()` to display the square of each number.**
+> Write a program that takes a list of numbers and uses a lambda function with `filter()` to display only the even numbers, and another lambda with `map()` to display the square of each number.
 
 ```python
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -492,7 +492,7 @@ print("Squares:", squares)           # [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 **Example — List comprehension for odd squares and lambda sort:**
 
-> 📝 **Write a program using list comprehension to generate a list of squares of all odd numbers from 1 to 20, and use a lambda function to sort a list of tuples `[(3,"c"), (1,"a"), (2,"b")]` by the second element.**
+> Write a program using list comprehension to generate a list of squares of all odd numbers from 1 to 20, and use a lambda function to sort a list of tuples `[(3,"c"), (1,"a"), (2,"b")]` by the second element.
 
 ```python
 odd_squares = [x ** 2 for x in range(1, 21) if x % 2 != 0]
@@ -533,7 +533,7 @@ unique_lengths = {len(word) for word in ["hi", "hello", "hey"]}   # {2, 3, 5}
 
 ### Copying Mutable Objects
 
-For mutable types, simple assignment (`b = a`) creates a **reference**, not a copy. Both variables point to the same object.
+For mutable types, simple assignment (`b = a`) creates a reference, not a copy. Both variables point to the same object.
 
 ```python
 a = [1, 2, 3]
