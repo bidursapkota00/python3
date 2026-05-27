@@ -4,7 +4,7 @@
 
 > Explain the concept of mutable and immutable data type in python. [4 marks] (2082 Baishakh - IOE)
 
-Mutable objects can be modified in place after creation — their content changes but their identity (memory address) remains the same. Immutable objects cannot be changed once created — any modification creates a new object in memory.
+Mutable objects can be modified in place after creation. Their content changes but their identity (memory address) remains the same. Immutable objects cannot be changed once created. Any modification creates a new object in memory.
 
 | Category  | Data Types                                          |
 | --------- | --------------------------------------------------- |
@@ -14,26 +14,24 @@ Mutable objects can be modified in place after creation — their content change
 **Verifying mutability with `id()`:**
 
 ```python
-# Mutable — list modified in place, id stays same
+# Mutable: list modified in place, id stays same
 a = [1, 2, 3]
 print(id(a))       # e.g., 140234567890
 a.append(4)
-print(id(a))       # same id — object modified in place
+print(id(a))       # same id, object modified in place
 
-# Immutable — string creates new object on modification
+# Immutable: string creates new object on modification
 s = "hello"
 print(id(s))       # e.g., 140234567000
 s = s + " world"
-print(id(s))       # different id — new object created
+print(id(s))       # different id, new object created
 ```
-
-**Why it matters:**
 
 - Immutable objects are hashable and can be used as dictionary keys or set elements. Mutable objects like lists cannot.
 - When a mutable object is passed to a function, changes inside the function affect the original object (pass by object reference). Immutable objects are safe from such side effects.
 - Python caches small immutable objects (small integers, short strings) for memory efficiency.
 
-**Example — Total marks from list of dictionaries:**
+**Example: Total marks from list of dictionaries**
 
 > For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject":"math","marks":80}, {"subject":"science","marks":90}, {"subject":"english","marks":80}]` [4 marks] (2082 Baishakh - IOE)
 
@@ -142,9 +140,9 @@ a, b = 1, 2
 a, b = b, a               # a=2, b=1
 ```
 
-**When to use tuple over list:** Use tuples for fixed collections that should not change (e.g., coordinates, database records, dictionary keys). Tuples are faster than lists and consume less memory.
+> **Note:** Use tuples for fixed collections that should not change (e.g., coordinates, database records, dictionary keys). Tuples are faster than lists and consume less memory.
 
-**Example — Tuple-List conversion and sorting:**
+**Example: Tuple-List conversion and sorting**
 
 > Write a program to create a tuple of student names, convert it to a list, add a new name, sort the list, and convert it back to a tuple.
 
@@ -211,7 +209,7 @@ students = {
 print(students[101]["name"])   # "Ram"
 ```
 
-**Example — Character frequency counter:**
+**Example: Character frequency counter**
 
 > Write a program to count the frequency of each character in a given string using a dictionary.
 
@@ -319,7 +317,7 @@ for row in matrix:
     print()
 ```
 
-**Example — Matrix addition:**
+**Example: Matrix addition**
 
 ```python
 A = [[1, 2, 3],
@@ -343,18 +341,18 @@ for row in C:
 # [14, 16, 18]
 ```
 
-**Common pitfall — incorrect initialization:**
+**Common pitfall with incorrect initialization:**
 
 ```python
-# WRONG — all rows share the same list object
+# WRONG: all rows share the same list object
 matrix = [[0] * 3] * 3
 matrix[0][0] = 5
-print(matrix)   # [[5, 0, 0], [5, 0, 0], [5, 0, 0]]  ← all rows changed!
+print(matrix)   # [[5, 0, 0], [5, 0, 0], [5, 0, 0]]  <-- all rows changed!
 
-# CORRECT — each row is an independent list
+# CORRECT: each row is an independent list
 matrix = [[0] * 3 for _ in range(3)]
 matrix[0][0] = 5
-print(matrix)   # [[5, 0, 0], [0, 0, 0], [0, 0, 0]]  ← only first row changed
+print(matrix)   # [[5, 0, 0], [0, 0, 0], [0, 0, 0]]  <-- only first row changed
 ```
 
 ## 4.6 Set Data Types
@@ -395,15 +393,15 @@ print(A >= B)      # Superset check: False
 
 Equivalent methods: `A.union(B)`, `A.intersection(B)`, `A.difference(B)`, `A.symmetric_difference(B)`, `A.issubset(B)`, `A.issuperset(B)`. Methods accept any iterable as argument; operators require both operands to be sets.
 
-**`frozenset`** — an immutable version of set. Cannot add or remove elements. Since it is hashable, it can be used as a dictionary key or element of another set.
+**`frozenset`** is an immutable version of set. It cannot add or remove elements. Since it is hashable, it can be used as a dictionary key or element of another set.
 
 ```python
 fs = frozenset([1, 2, 3])
-# fs.add(4)    ← AttributeError
+# fs.add(4)    # raises AttributeError
 d = {fs: "immutable set as key"}
 ```
 
-**Example — Set operations demonstration:**
+**Example: Set operations demonstration**
 
 > Write a program demonstrating set operations: create two sets of integers, then display their union, intersection, difference, and symmetric difference.
 
@@ -476,7 +474,7 @@ product = reduce(lambda x, y: x * y, nums)
 print(product)   # 120
 ```
 
-**Example — Filter even numbers and square all numbers:**
+**Example: Filter even numbers and square all numbers**
 
 > Write a program that takes a list of numbers and uses a lambda function with `filter()` to display only the even numbers, and another lambda with `map()` to display the square of each number.
 
@@ -490,7 +488,7 @@ squares = list(map(lambda x: x ** 2, nums))
 print("Squares:", squares)           # [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-**Example — List comprehension for odd squares and lambda sort:**
+**Example: List comprehension for odd squares and lambda sort**
 
 > Write a program using list comprehension to generate a list of squares of all odd numbers from 1 to 20, and use a lambda function to sort a list of tuples `[(3,"c"), (1,"a"), (2,"b")]` by the second element.
 
@@ -539,27 +537,27 @@ For mutable types, simple assignment (`b = a`) creates a reference, not a copy. 
 a = [1, 2, 3]
 b = a              # b and a reference the same list
 b.append(4)
-print(a)           # [1, 2, 3, 4] — a is also changed!
+print(a)           # [1, 2, 3, 4], a is also changed!
 ```
 
-**Shallow copy** — creates a new outer object, but nested objects are still shared:
+**Shallow copy** creates a new outer object, but nested objects are still shared:
 
 ```python
 import copy
 a = [[1, 2], [3, 4]]
 b = a.copy()           # or list(a) or a[:]
 b[0][0] = 99
-print(a)               # [[99, 2], [3, 4]] — inner list is shared
+print(a)               # [[99, 2], [3, 4]], inner list is shared
 ```
 
-**Deep copy** — creates a fully independent copy including all nested objects:
+**Deep copy** creates a fully independent copy including all nested objects:
 
 ```python
 import copy
 a = [[1, 2], [3, 4]]
 b = copy.deepcopy(a)
 b[0][0] = 99
-print(a)               # [[1, 2], [3, 4]] — a is unchanged
+print(a)               # [[1, 2], [3, 4]], a is unchanged
 ```
 
 ### Immutable Operations
