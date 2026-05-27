@@ -121,7 +121,7 @@ print(f"Name: {name}, Age: {age}")  # f-string formatting
 
 ## 3.4 Logic and Comparison Operations
 
-> **What do you mean by operators? Explain different types of operators available in python with example. [2+4 marks] (2081 Ashwin - IOE)**
+> What do you mean by operators? Explain different types of operators available in python with example. [2+4 marks] (2081 Ashwin - IOE)
 
 An operator is a special symbol or keyword that performs an operation on one or more operands (values/variables). Python supports seven types of operators:
 
@@ -322,24 +322,18 @@ match x:
 ### Dictionary-based switch (older)
 
 ```py
-def monday():
-    return "Monday"
-
-def tuesday():
-    return "Tuesday"
-
 switch = {
-    1: monday,
-    2: tuesday
+    1: "Monday",
+    2: "Tuesday"
 }
 
 day = 1
-print(switch.get(day, lambda: "Invalid")())
+print(switch.get(day, "Invalid"))
 ```
 
 **Example: Positive, Negative or Zero check:**
 
-> **Write a program that takes a number from the user and checks whether it is positive, negative, or zero using conditional statements.**
+> Write a program that takes a number from the user and checks whether it is positive, negative, or zero using conditional statements.
 
 ```python
 num = float(input("Enter a number: "))
@@ -353,7 +347,7 @@ else:
 
 **Example: Simple calculator using conditionals:**
 
-> **Write a program that reads two numbers and an operator (+, -, \*, /) from the user and performs the corresponding arithmetic operation. Handle division by zero.**
+> Write a program that reads two numbers and an operator (+, -, \*, /) from the user and performs the corresponding arithmetic operation. Handle division by zero.
 
 ```python
 a = float(input("Enter first number: "))
@@ -441,6 +435,18 @@ else:
     print("Loop completed without break")  # This executes
 ```
 
+`for-else` clause is used in applications like searching.
+
+```py
+target = 40
+for num in [10, 20, 30]:
+    if num == target:
+        print("Found")
+        break
+else:
+    print("Not Found")
+```
+
 ### Nested Loops
 
 ```python
@@ -448,11 +454,42 @@ for i in range(1, 4):
     for j in range(1, 4):
         print(i * j, end=" ")
     print()
+
+# output
+"""
+1 2 3
+2 4 6
+3 6 9
+"""
+```
+
+**Example: 2x2 Matrix Multiplication:**
+
+```py
+A = [
+    [1, 2],
+    [3, 4]
+]
+B = [
+    [5, 6],
+    [7, 8]
+]
+res = [
+    [0, 0],
+    [0, 0]
+]
+
+for i in range(2):
+    for j in range(2):
+        for k in range(2):
+            res[i][j] += A[i][k] * B[k][j]
+
+print(res)
 ```
 
 **Example: Multiplication table:**
 
-> **Write a program using a `for` loop to print the multiplication table of a given number.**
+> Write a program using a `for` loop to print the multiplication table of a given number.
 
 ```python
 num = int(input("Enter a number: "))
@@ -462,12 +499,12 @@ for i in range(1, 11):
 
 **Example: Factorial:**
 
-> **Write a program to find the factorial of a number using iterative approach.**
+> Write a program to find the factorial of a number using iterative approach.
 
 ```python
 def factorial_iter(n):
     result = 1
-    for i in range(1, n + 1):
+    for i in range(2, n + 1):
         result *= i
     return result
 
@@ -578,7 +615,9 @@ print(count)   # 1
 
 **Example: Prime check function:**
 
-> **Write a function `is_prime(n)` that returns `True` if it is a prime number, else `False`. Use this function to display all prime numbers between 1 and 100.**
+> Write a function `is_prime(n)` that returns `True` if it is a prime number, else `False`. Use this function to display all prime numbers between 1 and 100.
+
+A number is prime if it positive and has exactly two factors: 1 and itself.
 
 ```python
 def is_prime(n):
@@ -597,7 +636,7 @@ for num in range(1, 101):
 
 ## 3.8 Recursion Function Call
 
-> **Define recursive function. Write a program to find the nth term of Fibonacci series using recursive function. [2+4 marks] (2082 Baishakh - IOE)**
+> Define recursive function. Write a program to find the nth term of Fibonacci series using recursive function. [2+4 marks] (2082 Baishakh - IOE)
 
 Recursion is a technique where a function calls itself to solve a problem by breaking it into smaller, self-similar sub-problems. Every recursive function must have:
 
@@ -636,25 +675,10 @@ n = int(input("Enter n: "))
 print(f"Fibonacci({n}) = {fibonacci(n)}")
 ```
 
-### Recursion vs Iteration
-
-- **Recursion** uses function call stack, making code elegant and closer to mathematical definitions, but can be slower and uses more memory due to stack frames.
-- **Iteration** uses loops, is generally faster and more memory-efficient, but can be less intuitive for problems with a naturally recursive structure (e.g., tree traversal, Tower of Hanoi).
-- The naive recursive Fibonacci has exponential time complexity O(2ⁿ) because it recalculates the same values repeatedly. The iterative version runs in O(n).
-
-**Factorial: iterative vs recursive comparison:**
-
-```python
-# Iterative
-def factorial_iter(n):
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
-
-# Recursive
-def factorial_rec(n):
-    if n <= 1:
-        return 1
-    return n * factorial_rec(n - 1)
-```
+| Recursion                                                                                    | Iteration                                                                                                              |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Recursion uses the function call stack to solve problems.                                    | Iteration uses loops such as `for` and `while` to solve problems.                                                      |
+| Recursion often makes code more elegant and closer to mathematical definitions.              | Iteration is usually farther from mathematical definitions and can be less intuitive for naturally recursive problems. |
+| Recursion is generally slower because each function call adds overhead.                      | Iteration is generally faster because it avoids repeated function calls.                                               |
+| Recursion uses more memory because each function call is stored on the call stack.           | Iteration uses less memory because it does not rely on the call stack.                                                 |
+| Recursion is useful for naturally recursive problems like tree traversal and Tower of Hanoi. | Iteration is useful for repetitive and linear tasks.                                                                   |
