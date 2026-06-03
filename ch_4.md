@@ -103,6 +103,28 @@ print(nums[::2])     # [10, 30, 50]
 print(nums[::-1])    # [50, 40, 30, 20, 10]
 ```
 
+**List comprehension** is a concise way to create a list in a single line.
+
+Syntax: `[expression for item in iterable]`
+
+```python
+# regular way
+squares = []
+for x in range(5):
+    squares.append(x ** 2)
+
+# list comprehension
+squares = [x ** 2 for x in range(5)]   # [0, 1, 4, 9, 16]
+```
+
+With a condition:
+
+Syntax: `[expression for item in iterable if condition]`
+
+```python
+evens = [x for x in range(10) if x % 2 == 0]   # [0, 2, 4, 6, 8]
+```
+
 ### Tuple
 
 A tuple is an ordered, immutable collection. Tuples are defined using parentheses `()`.
@@ -458,6 +480,19 @@ print(evens)      # [2, 4, 6, 8]
 `sorted(iterable, key=function)` sorts elements using a key function for comparison.
 
 ```python
+# Numbers
+nums = [4, 1, 7, 2]
+sorted(nums)                      # [1, 2, 4, 7]
+sorted(nums, reverse=True)        # [7, 4, 2, 1]
+
+# Words
+words = ["banana", "apple", "cherry"]
+sorted(words)                     # ['apple', 'banana', 'cherry']
+sorted(words, reverse=True)       # ['cherry', 'banana', 'apple']
+
+# Words by last character
+sorted(words, key=lambda x: x[-1])  # ['banana', 'apple', 'cherry']
+
 pairs = [(3, "c"), (1, "a"), (2, "b")]
 sorted_pairs = sorted(pairs, key=lambda x: x[1])
 print(sorted_pairs)   # [(1, 'a'), (2, 'b'), (3, 'c')]
@@ -465,13 +500,20 @@ print(sorted_pairs)   # [(1, 'a'), (2, 'b'), (3, 'c')]
 
 ### Lambda with `reduce()`
 
-`reduce(function, iterable)` from `functools` applies a two-argument function cumulatively to reduce the iterable to a single value.
+`reduce(function, iterable, initial?)` from `functools` applies a two-argument function cumulatively to collapse an iterable into a single value. The optional third argument sets the starting value; if omitted, the first element is used.
 
 ```python
 from functools import reduce
 nums = [1, 2, 3, 4, 5]
 product = reduce(lambda x, y: x * y, nums)
 print(product)   # 120
+
+# Sum
+reduce(lambda x, y: x + y, nums)        # 15
+reduce(lambda x, y: x + y, nums, 100)  # 115
+
+# Max
+reduce(lambda x, y: x if x > y else y, nums)   # 5
 ```
 
 **Example: Filter even numbers and square all numbers**
