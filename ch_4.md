@@ -33,7 +33,7 @@ print(id(s))       # different id, new object created
 
 **Example: Total marks from list of dictionaries**
 
-> For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject":"math","marks":80}, {"subject":"science","marks":90}, {"subject":"english","marks":80}]` [4 marks] (2082 Baishakh - IOE)
+> For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject": "math", "marks": 80}, {"subject": "science", "marks": 90}, {"subject": "english", "marks": 80}]` [4 marks] (2082 Baishakh - IOE)
 
 ```python
 d = [{"subject": "math", "marks": 80},
@@ -105,24 +105,12 @@ print(nums[::-1])    # [50, 40, 30, 20, 10]
 
 **List comprehension** is a concise way to create a list in a single line.
 
-Syntax: `[expression for item in iterable]`
+**Syntax:** `[expression for item in iterable if condition]`
 
 ```python
-# regular way
-squares = []
-for x in range(5):
-    squares.append(x ** 2)
-
-# list comprehension
-squares = [x ** 2 for x in range(5)]   # [0, 1, 4, 9, 16]
-```
-
-With a condition:
-
-Syntax: `[expression for item in iterable if condition]`
-
-```python
-evens = [x for x in range(10) if x % 2 == 0]   # [0, 2, 4, 6, 8]
+squares = [x ** 2 for x in range(1, 6)]           # [1, 4, 9, 16, 25]
+evens = [x for x in range(20) if x % 2 == 0]      # [0, 2, 4, ..., 18]
+pairs = [(x, y) for x in range(3) for y in range(3)]  # nested comprehension
 ```
 
 ### Tuple
@@ -229,6 +217,12 @@ students = {
     102: {"name": "Sita", "marks": 92}
 }
 print(students[101]["name"])   # "Ram"
+```
+
+**Dictionary comprehension:** `{key: value for item in iterable if condition}`
+
+```python
+sq_dict = {x: x**2 for x in range(5)}    # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 ```
 
 **Example: Character frequency counter**
@@ -415,6 +409,12 @@ print(A >= B)      # Superset check: False
 
 Equivalent methods: `A.union(B)`, `A.intersection(B)`, `A.difference(B)`, `A.symmetric_difference(B)`, `A.issubset(B)`, `A.issuperset(B)`. Methods accept any iterable as argument; operators require both operands to be sets.
 
+**Set comprehension:** `{expression for item in iterable if condition}`
+
+```python
+unique_lengths = {len(word) for word in ["hi", "hello", "hey"]}   # {2, 3, 5}
+```
+
 **`frozenset`** is an immutable version of set. It cannot add or remove elements. Since it is hashable, it can be used as a dictionary key or element of another set.
 
 ```python
@@ -546,30 +546,6 @@ print("Sorted:", sorted_data)
 ```
 
 ## 4.8 Operation of Mutable and Immutable Data Types
-
-### List Comprehension
-
-List comprehension provides a concise way to create lists from existing iterables.
-
-**Syntax:** `[expression for item in iterable if condition]`
-
-```python
-squares = [x ** 2 for x in range(1, 6)]           # [1, 4, 9, 16, 25]
-evens = [x for x in range(20) if x % 2 == 0]      # [0, 2, 4, ..., 18]
-pairs = [(x, y) for x in range(3) for y in range(3)]  # nested comprehension
-```
-
-**Dictionary comprehension:** `{key: value for item in iterable if condition}`
-
-```python
-sq_dict = {x: x**2 for x in range(5)}    # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
-```
-
-**Set comprehension:** `{expression for item in iterable if condition}`
-
-```python
-unique_lengths = {len(word) for word in ["hi", "hello", "hey"]}   # {2, 3, 5}
-```
 
 ### Copying Mutable Objects
 
