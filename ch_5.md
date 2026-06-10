@@ -10,14 +10,13 @@
 
 **Four pillars of OOP:**
 
-- **Encapsulation:** Bundling data and methods into a single unit (class) and restricting direct access to internal data. Access is controlled through methods (getters/setters) and access modifiers (`_protected`, `__private`).
-- **Abstraction:** Hiding complex implementation details and exposing only the essential interface. Users interact with simplified methods without needing to know internal workings.
-- **Inheritance:** A new class (child) derives attributes and methods from an existing class (parent), promoting code reuse and hierarchical classification.
-- **Polymorphism:** Objects of different classes can be treated through the same interface. The same method name behaves differently depending on the object's actual type.
+- **Encapsulation:** Bundling data and methods into a single unit (class) and restricting direct access to internal data. Access is controlled through methods (getters/setters) and access modifiers (`_protected`, `__private`). Python uses naming conventions to indicate access levels: `_single_underscore` for protected (should not be accessed outside the class hierarchy) and `__double_underscore` for private (name-mangled by Python to prevent accidental access).
+- **Abstraction:** Defining *what* an object does (the contract) without specifying *how*, hiding complex implementation details and exposing only the essential interface. The parent class declares abstract methods, and the child classes provide concrete implementations. The caller works with the abstract type and does not need to know which concrete class is running behind it.
+- **Inheritance:** A child class (derived) acquires attributes and methods from an existing class (parent), promoting code reuse and hierarchical classification. The child can also override inherited methods to provide its own behavior.
+- **Polymorphism:** The same method name behaves differently depending on the object's actual type. Objects of different classes can be treated through the same interface, and the correct method is resolved at runtime.
 
 **Encapsulation example:**
 
-Python uses naming conventions to indicate access levels: `_single_underscore` for protected (should not be accessed outside the class hierarchy) and `__double_underscore` for private (name-mangled by Python to prevent accidental access). Getters and setters control how internal data is accessed and modified.
 
 ```python
 class BankAccount:
@@ -76,7 +75,6 @@ t.celsius = 100          # uses setter
 
 **Inheritance example:**
 
-Inheritance allows a child class to acquire attributes and methods from a parent class, promoting code reuse. The child can also override inherited methods to provide its own behavior.
 
 ```python
 class Animal:
@@ -96,7 +94,6 @@ print(d.speak())     # "Rex says Woof!"
 
 **Polymorphism example:**
 
-Polymorphism means the same method name behaves differently depending on the object's actual type. Different classes implement the same interface, and the correct method is resolved at runtime.
 
 ```python
 class Dog:
@@ -114,7 +111,6 @@ for animal in [Dog(), Cat()]:
 
 **Abstraction example:**
 
-Abstraction is about defining *what* an object does (the contract) without specifying *how*. The parent class declares abstract methods, and the child classes provide concrete implementations. The caller works with the abstract type and does not need to know which concrete class is running behind it.
 
 ```python
 from abc import ABC, abstractmethod
