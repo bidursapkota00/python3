@@ -15,6 +15,137 @@
 - **Inheritance:** A new class (child) derives attributes and methods from an existing class (parent), promoting code reuse and hierarchical classification.
 - **Polymorphism:** Objects of different classes can be treated through the same interface. The same method name behaves differently depending on the object's actual type.
 
+**Encapsulation example:**
+
+Python uses naming conventions to indicate access levels: `_single_underscore` for protected (should not be accessed outside the class hierarchy) and `__double_underscore` for private (name-mangled by Python to prevent accidental access). Getters and setters control how internal data is accessed and modified.
+
+```python
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner           # public attribute
+        self.__balance = balance     # private attribute (name-mangled)
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):           # getter method
+        return self.__balance
+
+acc = BankAccount("Ram", 1000)
+acc.deposit(500)
+print(acc.get_balance())       # 1500
+acc.withdraw(2000)             # Insufficient funds
+# print(acc.__balance)         # AttributeError (private, name-mangled)
+print(acc._BankAccount__balance)   # 1500 (name-mangling allows access, but discouraged)
+```
+
+Python also supports the `@property` decorator to create clean getter/setter interfaces:
+
+```python
+class Temperature:
+    def __init__(self, celsius):
+        self.__celsius = celsius
+
+    @property
+    def celsius(self):               # getter
+        return self.__celsius
+
+    @celsius.setter
+    def celsius(self, value):        # setter with validation
+        if value < -273.15:
+            raise ValueError("Temperature below absolute zero")
+        self.__celsius = value
+
+    @property
+    def fahrenheit(self):            # computed property
+        return self.__celsius * 9/5 + 32
+
+t = Temperature(25)
+print(t.celsius)         # 25 (uses getter)
+print(t.fahrenheit)      # 77.0
+t.celsius = 100          # uses setter
+# t.celsius = -300       # ValueError: Temperature below absolute zero
+```
+
+**Inheritance example:**
+
+Inheritance allows a child class to acquire attributes and methods from a parent class, promoting code reuse. The child can also override inherited methods to provide its own behavior.
+
+```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound"
+
+class Dog(Animal):               # Dog inherits from Animal
+    def speak(self):             # overrides parent method
+        return f"{self.name} says Woof!"
+
+d = Dog("Rex")
+print(d.speak())     # "Rex says Woof!"
+```
+
+**Polymorphism example:**
+
+Polymorphism means the same method name behaves differently depending on the object's actual type. Different classes implement the same interface, and the correct method is resolved at runtime.
+
+```python
+class Dog:
+    def speak(self):
+        return "Woof!"
+
+class Cat:
+    def speak(self):
+        return "Meow!"
+
+# Same interface, different behavior depending on object type
+for animal in [Dog(), Cat()]:
+    print(animal.speak())    # "Woof!" then "Meow!"
+```
+
+**Abstraction example:**
+
+Abstraction is about defining *what* an object does (the contract) without specifying *how*. The parent class declares abstract methods, and the child classes provide concrete implementations. The caller works with the abstract type and does not need to know which concrete class is running behind it.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):              # what (contract) -- no implementation
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):              # how (concrete implementation)
+        return 3.14 * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):              # how (different implementation)
+        return self.length * self.breadth
+
+# Caller works with the abstract type Shape
+# Does not care whether it is Circle or Rectangle
+shapes = [Circle(5), Rectangle(4, 6)]
+for shape in shapes:
+    print(shape.area())          # 78.5 then 24
+```
+
 **Benefits of OOP over procedural programming:**
 
 - **Modularity:** Code is organized into self-contained classes, making it easier to develop, test, and maintain.
