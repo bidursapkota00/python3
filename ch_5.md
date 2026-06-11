@@ -173,6 +173,12 @@ Attributes are variables that belong to a class or its instances. Methods are fu
 
 **Class attributes** are shared by all instances, defined directly inside the class body.
 
+**Instance method** is a regular method that takes `self` as its first parameter and can access or modify the instance's attributes.
+
+**Class method** is a method decorated with `@classmethod` that takes `cls` (the class itself) as its first parameter and can access or modify class-level attributes.
+
+**Static method** is a method decorated with `@staticmethod` that takes neither `self` nor `cls` and behaves like a plain function scoped inside the class. It’s basically a utility function grouped inside the class.
+
 ```python
 class Dog:
     species = "Canis lupus"     # class attribute (shared)
@@ -184,11 +190,23 @@ class Dog:
     def bark(self):              # instance method
         return f"{self.name} says Woof!"
 
+    @classmethod
+    def get_species(cls):
+        return cls.species
+
+    @staticmethod
+    def get_sci_name():
+        return Dog.species
+
 d1 = Dog("Rex", 5)
 d2 = Dog("Max", 3)
-print(d1.species)        # "Canis lupus"
-print(d1.name)           # "Rex"
-print(d2.bark())         # "Max says Woof!"
+print(d1.species)           # "Canis lupus"
+print(d2.species)           # "Canis lupus"
+print(Dog.species)          # "Canis lupus"
+print(d1.name)              # "Rex"
+print(d2.bark())            # "Max says Woof!"
+print(Dog.get_species())    # "Canis lupus"
+print(Dog.get_sci_name())   # "Canis lupus"
 ```
 
 `self` is a reference to the current instance. It must be the first parameter of every instance method. Through `self`, each object accesses its own attributes and methods.
