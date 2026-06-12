@@ -31,21 +31,6 @@ print(id(s))       # different id, new object created
 - When a mutable object is passed to a function, changes inside the function affect the original object (pass by object reference). Immutable objects are safe from such side effects.
 - Python caches small immutable objects (small integers, short strings) for memory efficiency.
 
-**Example: Total marks from list of dictionaries**
-
-> For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject": "math", "marks": 80}, {"subject": "science", "marks": 90}, {"subject": "english", "marks": 80}]` [4 marks] (2082 Baishakh - IOE)
-
-```python
-d = [{"subject": "math", "marks": 80},
-     {"subject": "science", "marks": 90},
-     {"subject": "english", "marks": 80}]
-
-total = 0
-for item in d:
-    total += item["marks"]
-print("Total Marks:", total)   # Total Marks: 250
-```
-
 ## 4.2 List and Tuple Data Types
 
 > With example, explain following data structures in python: a) List b) Tuple c) Dictionary. [6 marks] (2081 Ashwin - IOE)
@@ -234,6 +219,21 @@ print(students[101]["name"])   # "Ram"
 
 ```python
 sq_dict = {x: x**2 for x in range(5)}    # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+**Example: Total marks from list of dictionaries**
+
+> For the given list of dictionaries, find the TOTAL MARKS obtained: `d = [{"subject": "math", "marks": 80}, {"subject": "science", "marks": 90}, {"subject": "english", "marks": 80}]` [4 marks] (2082 Baishakh - IOE)
+
+```python
+d = [{"subject": "math", "marks": 80},
+     {"subject": "science", "marks": 90},
+     {"subject": "english", "marks": 80}]
+
+total = 0
+for item in d:
+    total += item["marks"]
+print("Total Marks:", total)   # Total Marks: 250
 ```
 
 **Example: Character frequency counter**
