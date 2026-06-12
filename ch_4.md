@@ -93,6 +93,16 @@ copy = nums.copy()        # shallow copy
 nums.clear()              # removes all items
 ```
 
+**Deep copy** creates a fully independent copy including all nested objects:
+
+```python
+import copy
+a = [[1, 2], [3, 4]]
+b = copy.deepcopy(a)
+b[0][0] = 99
+print(a)               # [[1, 2], [3, 4]], a is unchanged
+```
+
 **List slicing:** `list[start:stop:step]`
 
 ```python
@@ -134,6 +144,7 @@ print(t.count(20)) # 2
 print(t.index(30)) # 2
 print(len(t))      # 4
 print(20 in t)     # True
+t2 = (1, 2) + (3, 4)      # (1, 2, 3, 4) — Tuple concatenation
 ```
 
 **Tuple packing and unpacking:**
@@ -292,6 +303,9 @@ s.replace("World", "Python")  # "Hello, Python!"
 s.find("World")     # 7 (index of first match, -1 if not found)
 s.startswith("He")  # True
 s.isdigit()         # False
+# String <-> List
+chars = list("hello")         # ['h', 'e', 'l', 'l', 'o']
+s = "".join(chars)             # "hello"
 ```
 
 ## 4.5 Two-Dimensional Lists
@@ -543,77 +557,4 @@ data = [(3, "c"), (1, "a"), (2, "b")]
 sorted_data = sorted(data, key=lambda x: x[1])
 print("Sorted:", sorted_data)
 # [(1, 'a'), (2, 'b'), (3, 'c')]
-```
-
-## 4.8 Operation of Mutable and Immutable Data Types
-
-### Copying Mutable Objects
-
-For mutable types, simple assignment (`b = a`) creates a reference, not a copy. Both variables point to the same object.
-
-```python
-a = [1, 2, 3]
-b = a              # b and a reference the same list
-b.append(4)
-print(a)           # [1, 2, 3, 4], a is also changed!
-```
-
-**Shallow copy** creates a new outer object, but nested objects are still shared:
-
-```python
-import copy
-a = [[1, 2], [3, 4]]
-b = a.copy()           # or list(a) or a[:]
-b[0][0] = 99
-print(a)               # [[99, 2], [3, 4]], inner list is shared
-```
-
-**Deep copy** creates a fully independent copy including all nested objects:
-
-```python
-import copy
-a = [[1, 2], [3, 4]]
-b = copy.deepcopy(a)
-b[0][0] = 99
-print(a)               # [[1, 2], [3, 4]], a is unchanged
-```
-
-### Immutable Operations
-
-Operations on immutable types always produce new objects:
-
-```python
-# String concatenation creates a new string
-s = "hello"
-s2 = s + " world"     # new object; original s unchanged
-
-# Tuple concatenation creates a new tuple
-t1 = (1, 2)
-t2 = t1 + (3, 4)      # (1, 2, 3, 4) — new tuple
-
-# Integer operations create new objects
-x = 5
-x += 1                 # x now refers to a new int object 6
-```
-
-### Converting Between Types
-
-```python
-# List ↔ Tuple
-my_list = [1, 2, 3]
-my_tuple = tuple(my_list)     # (1, 2, 3)
-back_to_list = list(my_tuple) # [1, 2, 3]
-
-# List ↔ Set
-my_set = set(my_list)         # {1, 2, 3}
-back_to_list = list(my_set)   # [1, 2, 3] (order not guaranteed)
-
-# Dict keys/values to list
-d = {"a": 1, "b": 2}
-keys = list(d.keys())         # ["a", "b"]
-values = list(d.values())     # [1, 2]
-
-# String ↔ List
-chars = list("hello")         # ['h', 'e', 'l', 'l', 'o']
-s = "".join(chars)             # "hello"
 ```
