@@ -468,6 +468,8 @@ Advantages of `super()` over direct parent call: works correctly with multiple i
 
 A child class can override a parent's method or attribute by redefining it with the same name. The child's version takes precedence.
 
+**Method overriding:** A child class can redefine a parent's method with the same name.
+
 ```python
 class Animal:
     def speak(self):
@@ -488,6 +490,35 @@ class Cat(Animal):
     def speak(self):
         parent_msg = super().speak()
         return f"{parent_msg} ... actually, Meow!"
+```
+
+**Overriding class variables:** A child class can redefine a class variable to give it a different value.
+
+```python
+class Animal:
+    species = "Animal"
+
+class Cat(Animal):
+    species = "Cat"
+
+print(Animal.species)  # Animal
+print(Cat.species)     # Cat
+```
+
+**Overriding instance variables:** A child class can override instance variables set by the parent in `__init__()`.
+
+```python
+class Animal:
+    def __init__(self):
+        self.name = "Unknown"
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+        self.name = "Kitty"   # overrides parent's value
+
+c = Cat()
+print(c.name)  # Kitty
 ```
 
 ### 5.4.5 Forms of Inheritance
@@ -625,6 +656,25 @@ classDiagram
   }
   Father <|-- Child
   Mother <|-- Child
+```
+
+If both parents define a method with the same name, Python calls the one from the first parent in the inheritance list. To call a specific parent's version, use `ParentClass.method(instance)` directly.
+
+```python
+class Father:
+    def skill(self):
+        return "Gardening"
+
+class Mother:
+    def skill(self):
+        return "Painting"
+
+class Child(Father, Mother):
+    pass
+
+c = Child()
+print(c.skill())            # "Gardening" (from Father, listed first)
+print(Mother.skill(c))      # "Painting" (explicitly calling Mother's version)
 ```
 
 **Method Resolution Order (MRO):** In multiple inheritance, Python determines the method lookup order using the C3 linearization algorithm. View it with `ClassName.mro()` or `ClassName.__mro__`.
