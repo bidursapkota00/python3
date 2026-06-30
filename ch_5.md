@@ -318,6 +318,32 @@ print(car.drive())       # Toyota: Engine of 150HP started
 del car                  # Engine is also destroyed with Car
 ```
 
+Here is another example of composition. `House` creates its own `Room` objects internally. The rooms cannot exist without the house.
+
+```python
+class Room:
+    pass
+
+class House:
+    def __init__(self):
+        self.rooms = [Room(), Room()]    # Rooms created inside House
+
+h = House()
+print(len(h.rooms))   # 2
+del h                  # House destroyed, Rooms are also destroyed
+```
+
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 100, "nodeSpacing": 100 }}}%%
+classDiagram
+  direction LR
+  class House {
+  }
+  class Room {
+  }
+  House "1" *-- "*" Room
+```
+
 **Aggregation (weak "has-a"):** The contained object is created independently and passed to the container. It can exist even after the container is destroyed.
 
 ```python
@@ -334,6 +360,33 @@ engine = Engine(200)
 car = Car("Honda", engine)
 del car                   # Car is destroyed
 print(engine.horsepower)  # 200, Engine still exists independently
+```
+
+Here is another example of aggregation. `Department` receives pre-existing `Employee` objects. The employees can outlive the department.
+
+```python
+class Employee:
+    pass
+
+class Department:
+    def __init__(self, employees):
+        self.employees = employees
+
+e1, e2 = Employee(), Employee()
+dept = Department([e1, e2])
+del dept              # Department is destroyed
+print(e1)             # Employee still exists independently
+```
+
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 100, "nodeSpacing": 100 }}}%%
+classDiagram
+  direction LR
+  class Department {
+  }
+  class Employee {
+  }
+  Department "1" o-- "*" Employee
 ```
 
 ## 5.4 Inheritance
