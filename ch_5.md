@@ -508,6 +508,16 @@ print(d.eat())      # "Eating" (inherited)
 print(d.bark())     # "Barking" (own)
 ```
 
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 75, "nodeSpacing": 75 }}}%%
+classDiagram
+  class Animal {
+  }
+  class Dog {
+  }
+  Animal <|-- Dog
+```
+
 **Hierarchical inheritance:** Multiple children inherit from a single parent.
 
 ```python
@@ -538,6 +548,19 @@ print(c.area())      # 78.5
 print(r.area())      # 24
 ```
 
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 75, "nodeSpacing": 75 }}}%%
+classDiagram
+  class Shape {
+  }
+  class Circle {
+  }
+  class Rectangle {
+  }
+  Shape <|-- Circle
+  Shape <|-- Rectangle
+```
+
 **Multilevel inheritance:** A chain of inheritance where A is inherited by B, and B is inherited by C.
 
 ```python
@@ -559,6 +582,19 @@ print(p.bark())      # from Dog
 print(p.weep())      # own method
 ```
 
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 75, "nodeSpacing": 75 }}}%%
+classDiagram
+  class Animal {
+  }
+  class Dog {
+  }
+  class Puppy {
+  }
+  Animal <|-- Dog
+  Dog <|-- Puppy
+```
+
 **Multiple inheritance:** A child inherits from two or more parents.
 
 ```python
@@ -576,6 +612,19 @@ class Child(Father, Mother):
 c = Child()
 print(c.skill())     # from Father
 print(c.talent())    # from Mother
+```
+
+```mermaid
+%%{init: { "flowchart": { "rankSpacing": 75, "nodeSpacing": 75 }}}%%
+classDiagram
+  class Father {
+  }
+  class Mother {
+  }
+  class Child {
+  }
+  Father <|-- Child
+  Mother <|-- Child
 ```
 
 **Method Resolution Order (MRO):** In multiple inheritance, Python determines the method lookup order using the C3 linearization algorithm. View it with `ClassName.mro()` or `ClassName.__mro__`.
