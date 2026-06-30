@@ -305,6 +305,9 @@ class Engine:
     def start(self):
         return f"Engine of {self.horsepower}HP started"
 
+    def __del__(self):
+        print(f"Engine of {self.horsepower}HP destroyed")
+
 class Car:
     def __init__(self, model, hp):
         self.model = model
@@ -313,9 +316,14 @@ class Car:
     def drive(self):
         return f"{self.model}: {self.engine.start()}"
 
+    def __del__(self):
+        print(f"Car {self.model} destroyed")
+
 car = Car("Toyota", 150)
 print(car.drive())       # Toyota: Engine of 150HP started
-del car                  # Engine is also destroyed with Car
+del car
+# Car Toyota destroyed
+# Engine of 150HP destroyed   (Engine is also destroyed with Car)
 ```
 
 Here is another example of composition. `House` creates its own `Room` objects internally. The rooms cannot exist without the house.
@@ -351,14 +359,20 @@ class Engine:
     def __init__(self, horsepower):
         self.horsepower = horsepower
 
+    def __del__(self):
+        print(f"Engine of {self.horsepower}HP destroyed")
+
 class Car:
     def __init__(self, model, engine):
         self.model = model
         self.engine = engine       # Engine passed from outside
 
+    def __del__(self):
+        print(f"Car {self.model} destroyed")
+
 engine = Engine(200)
 car = Car("Honda", engine)
-del car                   # Car is destroyed
+del car                   # Car Honda destroyed
 print(engine.horsepower)  # 200, Engine still exists independently
 ```
 
