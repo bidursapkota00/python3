@@ -209,6 +209,8 @@ print(Dog.get_sci_name())   # "Canis lupus"
 
 ### 5.2.2 `__init__()` and `__str__()` Methods
 
+Dunder methods (double underscore methods) are special methods Python calls automatically in response to built-in operations. You define them to customize how your objects behave.
+
 **`__init__()`** is the constructor, a special method automatically called when an object is created. It initializes the object's attributes. It does not return a value.
 
 **`__str__()`** returns a human-readable string representation of the object. It is called when you use `print()` or `str()` on the object.
@@ -233,6 +235,8 @@ Other useful dunder methods:
 - `__del__()`: Destructor, called when an object is about to be destroyed.
 
 ### 5.2.3 Delete Properties and Objects
+
+A **destructor** is a special method that is called when an object is about to be destroyed. In Python, the `__del__()` method serves as the destructor. It is invoked automatically when an object's reference count drops to zero or when the garbage collector reclaims it.
 
 Use `del` to delete attributes or objects. The `__del__()` destructor is called when an object is garbage collected.
 
@@ -764,6 +768,24 @@ print(c.description())    # "I am a shape"
 ```
 
 If a subclass does not implement all abstract methods, it also becomes abstract and cannot be instantiated.
+
+**Decorators** wrap a function to extend or modify its behavior without changing its source code. A decorator is a function that takes another function as an argument, adds some functionality, and returns a new function. The `@decorator` syntax is shorthand for `func = decorator(func)`.
+
+```python
+def shout(func):
+    def wrapper():
+        result = func()
+        return result.upper()
+    return wrapper
+
+@shout
+def greet():
+    return "hello"
+
+print(greet())  # HELLO
+```
+
+Python uses decorators extensively in OOP. For example, `@abstractmethod`, `@property`, `@staticmethod`, and `@classmethod` are all built-in decorators.
 
 ### 5.5.2 Abstract Methods and Abstract Attributes
 
