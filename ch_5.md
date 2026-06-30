@@ -11,12 +11,11 @@
 **Four pillars of OOP:**
 
 - **Encapsulation:** Bundling data and methods into a single unit (class) and restricting direct access to internal data. Access is controlled through methods (getters/setters) and access modifiers (`_protected`, `__private`). Python uses naming conventions to indicate access levels: `_single_underscore` for protected (should not be accessed outside the class hierarchy) and `__double_underscore` for private (name-mangled by Python to prevent accidental access).
-- **Abstraction:** Defining *what* an object does (the contract) without specifying *how*, hiding complex implementation details and exposing only the essential interface. The parent class declares abstract methods, and the child classes provide concrete implementations. The caller works with the abstract type and does not need to know which concrete class is running behind it.
+- **Abstraction:** Defining _what_ an object does (the contract) without specifying _how_, hiding complex implementation details and exposing only the essential interface. The parent class declares abstract methods, and the child classes provide concrete implementations. The caller works with the abstract type and does not need to know which concrete class is running behind it.
 - **Inheritance:** A child class (derived) acquires attributes and methods from an existing class (parent), promoting code reuse and hierarchical classification. The child can also override inherited methods to provide its own behavior.
 - **Polymorphism:** The same method name behaves differently depending on the object's actual type. Objects of different classes can be treated through the same interface, and the correct method is resolved at runtime.
 
 **Encapsulation example:**
-
 
 ```python
 class BankAccount:
@@ -75,7 +74,6 @@ t.celsius = 100          # uses setter
 
 **Inheritance example:**
 
-
 ```python
 class Animal:
     def __init__(self, name):
@@ -94,7 +92,6 @@ print(d.speak())     # "Rex says Woof!"
 
 **Polymorphism example:**
 
-
 ```python
 class Dog:
     def speak(self):
@@ -110,7 +107,6 @@ for animal in [Dog(), Cat()]:
 ```
 
 **Abstraction example:**
-
 
 ```python
 from abc import ABC, abstractmethod
