@@ -32,10 +32,10 @@ print(m.pi)
 from math import sqrt, pi      # import specific items
 print(sqrt(25))                 # use directly without prefix
 
-from math import *              # import everything (discouraged — may cause name conflicts)
+from math import *              # import everything (this is discouraged because it may cause name conflicts)
 ```
 
-**Example — Custom module:**
+**Example: Custom module**
 
 > **Write a Python program that creates a custom module `mathutils.py` with functions `factorial(n)`, `is_even(n)`, and `gcd(a, b)`. Import and use this module in another script.**
 
@@ -78,16 +78,16 @@ Python's standard library is a vast collection of modules included with every Py
 
 **Commonly used standard library modules:**
 
-- `math` — Mathematical functions: `sqrt()`, `ceil()`, `floor()`, `factorial()`, `log()`, constants `pi`, `e`.
-- `os` — Operating system interface: `getcwd()`, `listdir()`, `mkdir()`, `path.join()`, `remove()`.
-- `sys` — System-specific parameters: `argv` (command-line args), `exit()`, `path` (module search path), `version`.
-- `datetime` — Date and time manipulation: `datetime.now()`, `timedelta`, formatting with `strftime()`.
-- `random` — Random number generation: `random()`, `randint()`, `choice()`, `shuffle()`.
-- `json` — JSON encoding/decoding: `dumps()`, `loads()`, `dump()`, `load()`.
-- `collections` — Specialized containers: `Counter`, `defaultdict`, `namedtuple`, `deque`.
-- `re` — Regular expressions: `match()`, `search()`, `findall()`, `sub()`.
-- `itertools` — Iterator tools: `chain()`, `permutations()`, `combinations()`, `cycle()`.
-- `functools` — Higher-order functions: `reduce()`, `lru_cache`, `partial`.
+- `math`: Mathematical functions such as `sqrt()`, `ceil()`, `floor()`, `factorial()`, and `log()`, along with constants like `pi` and `e`.
+- `os`: Operating system interfaces such as `getcwd()`, `listdir()`, `mkdir()`, `path.join()`, and `remove()`.
+- `sys`: System-specific parameters including `argv` (command-line args), `exit()`, `path` (module search path), and `version`.
+- `datetime`: Date and time manipulation using `datetime.now()`, `timedelta`, and formatting with `strftime()`.
+- `random`: Random number generation using `random()`, `randint()`, `choice()`, and `shuffle()`.
+- `json`: JSON encoding and decoding using `dumps()`, `loads()`, `dump()`, and `load()`.
+- `collections`: Specialized containers like `Counter`, `defaultdict`, `namedtuple`, and `deque`.
+- `re`: Regular expressions using `match()`, `search()`, `findall()`, and `sub()`.
+- `itertools`: Iterator tools including `chain()`, `permutations()`, `combinations()`, and `cycle()`.
+- `functools`: Higher-order functions like `reduce()`, `lru_cache`, and `partial`.
 
 ```python
 import math
@@ -133,23 +133,23 @@ A framework provides a complete structure and set of tools for building applicat
 
 **Web development frameworks:**
 
-- **Django** — Full-stack, "batteries-included" framework with ORM, admin panel, authentication, and templating. Used for large, complex web applications.
-- **Flask** — Lightweight, micro-framework with minimal built-in features. Flexible and suitable for small to medium applications and APIs.
-- **FastAPI** — Modern, high-performance framework for building APIs. Based on type hints, auto-generates documentation.
+- **Django**: This is a full-stack, "batteries-included" framework with an ORM, an admin panel, authentication, and templating. It is used for large, complex web applications.
+- **Flask**: This is a lightweight, micro-framework with minimal built-in features. It is flexible and suitable for small to medium applications and APIs.
+- **FastAPI**: This is a modern, high-performance framework for building APIs. It is based on type hints and auto-generates documentation.
 
 **Data science and machine learning frameworks:**
 
-- **NumPy** — Numerical computing with multi-dimensional arrays.
-- **Pandas** — Data manipulation and analysis with DataFrames.
-- **Matplotlib** — Data visualization and plotting.
-- **Scikit-learn** — Machine learning algorithms.
-- **TensorFlow / PyTorch** — Deep learning frameworks.
+- **NumPy**: This is used for numerical computing with multi-dimensional arrays.
+- **Pandas**: This is used for data manipulation and analysis with DataFrames.
+- **Matplotlib**: This is used for data visualization and plotting.
+- **Scikit-learn**: This provides machine learning algorithms.
+- **TensorFlow / PyTorch**: These are deep learning frameworks.
 
 **Other frameworks:**
 
-- **Tkinter** — GUI development (part of standard library).
-- **Pygame** — Game development.
-- **Scrapy** — Web scraping.
+- **Tkinter**: This provides GUI development and is part of the standard library.
+- **Pygame**: This is used for game development.
+- **Scrapy**: This is used for web scraping.
 
 ## 7.5 Introduction to the NumPy Library
 
@@ -159,16 +159,16 @@ A framework provides a complete structure and set of tools for building applicat
 
 **Advantages of NumPy arrays over Python lists:**
 
-- **Performance** — NumPy arrays are stored in contiguous memory and implemented in C, making operations 10–100x faster than Python lists.
-- **Memory efficiency** — Fixed data type means less memory overhead per element compared to Python objects.
-- **Vectorized operations** — Element-wise operations without explicit loops. `arr * 2` multiplies every element, unlike lists.
-- **Broadcasting** — Operations on arrays of different shapes without manual reshaping.
-- **Built-in mathematical functions** — Comprehensive library for linear algebra, statistics, random numbers, and more.
+- **Performance**: NumPy arrays are stored in contiguous memory and implemented in C, making operations 10 to 100 times faster than Python lists.
+- **Memory efficiency**: Using a fixed data type means there is less memory overhead per element compared to Python objects.
+- **Vectorized operations**: These allow element-wise operations without explicit loops. For example, `arr * 2` multiplies every element, unlike lists.
+- **Broadcasting**: This enables operations on arrays of different shapes without manual reshaping.
+- **Built-in mathematical functions**: NumPy provides a comprehensive library for linear algebra, statistics, random numbers, and more.
 
 ```python
 import numpy as np
 
-# Python list vs NumPy array — element-wise multiplication
+# Python list vs NumPy array for element-wise multiplication
 py_list = [1, 2, 3, 4, 5]
 np_arr = np.array([1, 2, 3, 4, 5])
 
@@ -210,10 +210,10 @@ emp = np.empty((2, 3))            # uninitialized 2×3 array
 
 ```python
 arr = np.array([[1, 2, 3], [4, 5, 6]])
-print(arr.shape)      # (2, 3) — dimensions
-print(arr.ndim)       # 2 — number of dimensions
-print(arr.size)       # 6 — total elements
-print(arr.dtype)      # int64 — data type
+print(arr.shape)      # (2, 3) represents the dimensions
+print(arr.ndim)       # 2 represents the number of dimensions
+print(arr.size)       # 6 is the total number of elements
+print(arr.dtype)      # int64 is the data type
 ```
 
 **Indexing:**
@@ -228,7 +228,7 @@ print(b[0, 1])    # 2 (row 0, col 1)
 print(b[2, -1])   # 9 (row 2, last col)
 ```
 
-**Slicing:** `array[start:stop:step]` — returns a view (not a copy).
+**Slicing:** `array[start:stop:step]` returns a view rather than a copy.
 
 ```python
 a = np.array([10, 20, 30, 40, 50])
@@ -253,22 +253,22 @@ print(a[a % 20 == 0]) # [20, 40]
 
 ## 7.7 Copying and Editing NumPy Arrays
 
-**View (shallow copy)** — Slicing returns a view. Modifying the view modifies the original.
+**View (shallow copy):** Slicing returns a view. Modifying the view modifies the original.
 
 ```python
 a = np.array([1, 2, 3, 4, 5])
 view = a[1:4]          # view, not a copy
 view[0] = 99
-print(a)               # [1, 99, 3, 4, 5] — original changed!
+print(a)               # [1, 99, 3, 4, 5]. The original array has changed.
 ```
 
-**Copy (deep copy)** — `copy()` creates an independent copy. Modifications do not affect the original.
+**Copy (deep copy):** The `copy()` method creates an independent copy. Modifications do not affect the original.
 
 ```python
 a = np.array([1, 2, 3, 4, 5])
 copy = a.copy()
 copy[0] = 99
-print(a)               # [1, 2, 3, 4, 5] — original unchanged
+print(a)               # [1, 2, 3, 4, 5]. The original array is unchanged.
 print(copy)            # [99, 2, 3, 4, 5]
 ```
 
@@ -279,12 +279,12 @@ a = np.array([1, 2, 3, 4, 5])
 a[0] = 10              # modify single element
 a[1:3] = [20, 30]      # modify slice
 
-# Append, insert, delete (return new arrays — NumPy arrays have fixed size)
+# Append, insert, delete (these return new arrays since NumPy arrays have fixed size)
 a = np.append(a, [6, 7])           # append at end
 a = np.insert(a, 2, 99)            # insert 99 at index 2
 a = np.delete(a, 0)                # delete element at index 0
 
-# Where — conditional replacement
+# Where is used for conditional replacement
 a = np.array([1, 2, 3, 4, 5])
 result = np.where(a > 3, a, 0)     # [0, 0, 0, 4, 5]
 ```
@@ -306,8 +306,8 @@ d = a.reshape(4, -1)          # -1 means auto-calculate: 4×3
 
 ```python
 b = np.array([[1, 2], [3, 4]])
-print(b.flatten())    # [1, 2, 3, 4] — returns a copy
-print(b.ravel())      # [1, 2, 3, 4] — returns a view
+print(b.flatten())    # [1, 2, 3, 4] returns a copy
+print(b.ravel())      # [1, 2, 3, 4] returns a view
 ```
 
 **Transpose:**
@@ -333,7 +333,7 @@ print(np.vstack((c, d)))    # [[1,2], [3,4], [5,6], [7,8]]
 print(np.hstack((c, d)))    # [[1,2,5,6], [3,4,7,8]]
 ```
 
-**Example — Reshape 1D to 3×4, then vstack with transpose:**
+**Example: Reshape 1D to 3×4, then vstack with transpose.**
 
 > **Write a program to create a 1D NumPy array of 12 elements, reshape it into a 3×4 matrix, then vertically stack it with its transpose (after reshaping).**
 
@@ -371,7 +371,7 @@ print("Power:\n", a ** 2)               # [[ 1,  4], [ 9, 16]]
 print("Modulus:\n", b % a)              # [[0, 0], [1, 0]]
 ```
 
-**Matrix multiplication** (dot product) — not element-wise:
+**Matrix multiplication** (dot product) is not element-wise:
 
 ```python
 print("Matrix Multiply:\n", a @ b)          # [[19, 22], [43, 50]]
@@ -404,7 +404,7 @@ print(np.abs(np.array([-1, -2, 3])))  # [1, 2, 3]
 
 > **Write a program using NumPy to create two arrays of different shapes and demonstrate broadcasting by performing addition between them.**
 
-**Broadcasting** allows NumPy to perform operations on arrays of different shapes by automatically expanding the smaller array to match the larger one. No actual copying of data occurs — it is handled internally for efficiency.
+**Broadcasting** allows NumPy to perform operations on arrays of different shapes by automatically expanding the smaller array to match the larger one. No actual copying of data occurs because it is handled internally for efficiency.
 
 **Broadcasting rules:**
 
@@ -460,8 +460,8 @@ print(np.flip(a))                 # [5, 4, 3, 2, 1]
 
 b = np.array([[1, 2], [3, 4]])
 print(np.flip(b))                 # [[4, 3], [2, 1]]
-print(np.flip(b, axis=0))        # [[3, 4], [1, 2]] — flip rows
-print(np.flip(b, axis=1))        # [[2, 1], [4, 3]] — flip columns
+print(np.flip(b, axis=0))        # [[3, 4], [1, 2]] flips rows
+print(np.flip(b, axis=1))        # [[2, 1], [4, 3]] flips columns
 ```
 
 **Persistence (saving and loading arrays):**
@@ -542,7 +542,7 @@ print("Column means:", np.mean(b, axis=0))    # [25., 35., 45.]
 print("Row means:", np.mean(b, axis=1))       # [20., 50.]
 ```
 
-**Complete example — Random array with statistics:**
+**Complete example: Random array with statistics.**
 
 ```python
 import numpy as np
@@ -560,7 +560,7 @@ print(f"Variance: {np.var(arr):.2f}")
 
 The `numpy.linalg` module provides functions for linear algebra operations.
 
-**Solving system of linear equations** — For `Ax = b`, use `np.linalg.solve(A, b)`:
+**Solving a system of linear equations:** For `Ax = b`, use `np.linalg.solve(A, b)`:
 
 > **Solve: 2x + 3y = 12, 4x - 5y = -2. [4 marks] (2082 Baishakh - IOE)**
 
