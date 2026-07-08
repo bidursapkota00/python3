@@ -21,11 +21,11 @@ print(int("abc"))     # ValueError
 print(my_var)         # NameError (undefined variable)
 ```
 
-**Logical (semantic) errors** produce no error message — the program runs but gives incorrect results. These are caused by flawed algorithm logic and are the hardest to detect.
+**Logical (semantic) errors** produce no error message. The program runs but gives incorrect results. These are caused by flawed algorithm logic and are the hardest to detect.
 
 ```python
 # Intended: area = length * width
-area = length + width    # Wrong operator — logical error
+area = length + width    # Wrong operator. This is a logical error.
 ```
 
 ## 6.2 Types of Exceptions
@@ -34,19 +34,19 @@ An exception is a runtime error that disrupts the normal flow of program executi
 
 **Common built-in exceptions:**
 
-- `ZeroDivisionError` — Division or modulo by zero.
-- `ValueError` — Function receives argument of correct type but inappropriate value.
-- `TypeError` — Operation applied to an object of inappropriate type.
-- `IndexError` — Sequence index out of range.
-- `KeyError` — Dictionary key not found.
-- `NameError` — Name (variable/function) not found in scope.
-- `AttributeError` — Attribute reference or assignment fails.
-- `FileNotFoundError` — Specified file does not exist.
-- `IOError` / `OSError` — Input/output operation fails.
-- `ImportError` — Module import fails.
-- `StopIteration` — `next()` called on exhausted iterator.
-- `RecursionError` — Maximum recursion depth exceeded.
-- `OverflowError` — Arithmetic result too large to represent.
+- `ZeroDivisionError`: This occurs upon division or modulo by zero.
+- `ValueError`: This occurs when a function receives an argument of correct type but inappropriate value.
+- `TypeError`: This occurs when an operation is applied to an object of inappropriate type.
+- `IndexError`: This occurs when a sequence index is out of range.
+- `KeyError`: This occurs when a dictionary key is not found.
+- `NameError`: This occurs when a name (variable/function) is not found in scope.
+- `AttributeError`: This occurs when an attribute reference or assignment fails.
+- `FileNotFoundError`: This occurs when the specified file does not exist.
+- `IOError` / `OSError`: This occurs when an input/output operation fails.
+- `ImportError`: This occurs when a module import fails.
+- `StopIteration`: This occurs when `next()` is called on an exhausted iterator.
+- `RecursionError`: This occurs when the maximum recursion depth is exceeded.
+- `OverflowError`: This occurs when an arithmetic result is too large to represent.
 
 You can view the exception hierarchy using:
 
@@ -62,10 +62,10 @@ print(ZeroDivisionError.__mro__)
 
 Exceptions are handled using the `try`-`except`-`else`-`finally` block:
 
-- **`try`** — Contains code that might raise an exception.
-- **`except`** — Executes if a specific exception occurs in the `try` block.
-- **`else`** — Executes only if no exception was raised in the `try` block.
-- **`finally`** — Executes always, regardless of whether an exception occurred. Used for cleanup (closing files, releasing resources).
+- **`try`**: This block contains code that might raise an exception.
+- **`except`**: This block executes if a specific exception occurs in the `try` block.
+- **`else`**: This block executes only if no exception was raised in the `try` block.
+- **`finally`**: This block executes always, regardless of whether an exception occurred. It is used for cleanup tasks like closing files or releasing resources.
 
 ```python
 try:
@@ -78,7 +78,7 @@ finally:
     always_runs()
 ```
 
-**Example — Handling division by zero:**
+**Example of handling division by zero:**
 
 ```python
 try:
@@ -204,11 +204,11 @@ The `logging` module provides a flexible framework for recording diagnostic mess
 
 **Logging levels** (in order of increasing severity):
 
-- `DEBUG` (10) — Detailed diagnostic information.
-- `INFO` (20) — Confirmation that things are working.
-- `WARNING` (30) — Something unexpected but not critical (default level).
-- `ERROR` (40) — A serious problem.
-- `CRITICAL` (50) — The program may not be able to continue.
+- `DEBUG` (10): This level provides detailed diagnostic information.
+- `INFO` (20): This level provides confirmation that things are working.
+- `WARNING` (30): This level indicates something unexpected but not critical. It is the default level.
+- `ERROR` (40): This level indicates a serious problem.
+- `CRITICAL` (50): This level indicates that the program may not be able to continue.
 
 **Basic usage:**
 
@@ -234,7 +234,7 @@ logging.basicConfig(
 )
 ```
 
-**Example — Assert with logging:**
+**Example of using assert with logging:**
 
 ```python
 import logging
@@ -266,8 +266,8 @@ except ValueError:
 
 **Types of files:**
 
-- **Text files** — Store data as human-readable characters (`.txt`, `.csv`, `.html`). Each line ends with a newline character (`\n`).
-- **Binary files** — Store data in binary format (`.bin`, `.pkl`, `.jpg`, `.exe`). Not human-readable.
+- **Text files**: These files store data as human-readable characters (`.txt`, `.csv`, `.html`). Each line ends with a newline character (`\n`).
+- **Binary files**: These files store data in binary format (`.bin`, `.pkl`, `.jpg`, `.exe`). They are not human-readable.
 
 ## 6.8 Opening and Closing a File
 
@@ -301,7 +301,7 @@ with open("data.txt", "w") as f:
 # file is automatically closed here
 ```
 
-**Example — Store student records in a file:**
+**Example of storing student records in a file:**
 
 ```python
 with open("record.txt", "w") as f:
@@ -356,7 +356,7 @@ with open("output.txt", "r") as f:
         print(line.strip())
 ```
 
-**Example — Count words and lines, write result to new file:**
+**Example of counting words and lines, and writing the result to a new file:**
 
 > **Write a program to read a text file, count the number of words and lines, and write the result to a new file. Handle the case where the input file does not exist.**
 
@@ -410,10 +410,10 @@ for s in loaded:
 
 **`pickle` key functions:**
 
-- `pickle.dump(obj, file)` — Serialize `obj` and write to `file`.
-- `pickle.load(file)` — Read from `file` and deserialize to a Python object.
-- `pickle.dumps(obj)` — Serialize to bytes (not to file).
-- `pickle.loads(bytes)` — Deserialize from bytes.
+- `pickle.dump(obj, file)`: This serializes `obj` and writes it to `file`.
+- `pickle.load(file)`: This reads from `file` and deserializes it to a Python object.
+- `pickle.dumps(obj)`: This serializes the object to bytes instead of writing it to a file.
+- `pickle.loads(bytes)`: This deserializes the object from bytes.
 
 **Writing/reading raw bytes without pickle:**
 
@@ -435,10 +435,10 @@ with open("data.bin", "rb") as f:
 
 **Random access** allows reading from or writing to any position in the file using `seek()` and `tell()`.
 
-- **`tell()`** — Returns the current position of the file pointer (in bytes from the beginning).
-- **`seek(offset, whence)`** — Moves the file pointer to a specific position.
-  - `offset` — Number of bytes to move.
-  - `whence` — Reference point: `0` = beginning (default), `1` = current position, `2` = end of file.
+- **`tell()`**: This returns the current position of the file pointer in bytes from the beginning.
+- **`seek(offset, whence)`**: This moves the file pointer to a specific position.
+  - `offset`: This is the number of bytes to move.
+  - `whence`: This is the reference point, where `0` means the beginning (default), `1` means the current position, and `2` means the end of the file.
 
 In text mode, only `seek(0)`, `seek(offset, 0)` with offsets from `tell()`, and `seek(0, 2)` are reliable. Binary mode supports all `whence` values.
 
@@ -462,7 +462,7 @@ with open("sample.txt", "w+") as f:
     print(f.read())         # "Hello, Python! Bye!"
 ```
 
-**Example — Random access in binary mode:**
+**Example of random access in binary mode:**
 
 ```python
 with open("data.bin", "wb") as f:
