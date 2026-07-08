@@ -2,7 +2,7 @@
 
 ## 7.1 Modules, Packages and Libraries
 
-> 📝 **Discuss the difference between a Python module, package, and library. What are the different ways to import modules? [3+3 marks] (2082 Baishakh - IOE)**
+> **Discuss the difference between a Python module, package, and library. What are the different ways to import modules? [3+3 marks] (2082 Baishakh - IOE)**
 
 A **module** is a single Python file (`.py`) containing functions, classes, and variables. It is the basic unit of code organization.
 
@@ -37,7 +37,7 @@ from math import *              # import everything (discouraged — may cause n
 
 **Example — Custom module:**
 
-> 📝 **Write a Python program that creates a custom module `mathutils.py` with functions `factorial(n)`, `is_even(n)`, and `gcd(a, b)`. Import and use this module in another script.**
+> **Write a Python program that creates a custom module `mathutils.py` with functions `factorial(n)`, `is_even(n)`, and `gcd(a, b)`. Import and use this module in another script.**
 
 **mathutils.py:**
 
@@ -74,7 +74,7 @@ print(gcd(12, 8))                  # 4
 
 ## 7.2 The Standard Library and Library Functions
 
-Python's **standard library** is a vast collection of modules included with every Python installation ("batteries included"). No external installation is needed.
+Python's standard library is a vast collection of modules included with every Python installation ("batteries included"). No external installation is needed.
 
 **Commonly used standard library modules:**
 
@@ -106,7 +106,7 @@ print(random.choice(["a", "b", "c"]))
 
 ## 7.3 Adding More Python Libraries
 
-Third-party libraries are installed using **pip** (Python's package manager), which downloads packages from the **Python Package Index (PyPI)**.
+Third-party libraries are installed using pip (Python's package manager), which downloads packages from the Python Package Index (PyPI).
 
 ```bash
 pip install numpy              # install a package
@@ -129,7 +129,7 @@ deactivate                     # deactivate
 
 ## 7.4 Python Frameworks
 
-A **framework** provides a complete structure and set of tools for building applications. Unlike a library (which you call), a framework calls your code (Inversion of Control).
+A framework provides a complete structure and set of tools for building applications. Unlike a library (which you call), a framework calls your code (Inversion of Control).
 
 **Web development frameworks:**
 
@@ -153,9 +153,9 @@ A **framework** provides a complete structure and set of tools for building appl
 
 ## 7.5 Introduction to the NumPy Library
 
-> 📝 **Explain the advantages of using NumPy array over python sequences with an example. [3 marks] (2081 Ashwin - IOE)**
+> **Explain the advantages of using NumPy array over python sequences with an example. [3 marks] (2081 Ashwin - IOE)**
 
-**NumPy** (Numerical Python) is a library for efficient numerical computation. Its core object is the **ndarray** (N-dimensional array), a fixed-size, homogeneous container of elements of the same type.
+**NumPy** (Numerical Python) is a library for efficient numerical computation. Its core object is the ndarray (N-dimensional array), a fixed-size, homogeneous container of elements of the same type.
 
 **Advantages of NumPy arrays over Python lists:**
 
@@ -185,7 +185,7 @@ result_arr = np_arr * 2                       # array([2, 4, 6, 8, 10])
 
 ## 7.6 Creating, Indexing and Slicing NumPy Arrays
 
-> 📝 **Write a program to create a NumPy array, demonstrate indexing, slicing, and copying (shallow vs deep copy). Modify the copy and show that the original array remains unchanged.**
+> **Write a program to create a NumPy array, demonstrate indexing, slicing, and copying (shallow vs deep copy). Modify the copy and show that the original array remains unchanged.**
 
 **Creating arrays:**
 
@@ -228,7 +228,7 @@ print(b[0, 1])    # 2 (row 0, col 1)
 print(b[2, -1])   # 9 (row 2, last col)
 ```
 
-**Slicing:** `array[start:stop:step]` — returns a **view** (not a copy).
+**Slicing:** `array[start:stop:step]` — returns a view (not a copy).
 
 ```python
 a = np.array([10, 20, 30, 40, 50])
@@ -291,7 +291,7 @@ result = np.where(a > 3, a, 0)     # [0, 0, 0, 4, 5]
 
 ## 7.8 Stacking and Restructuring NumPy Arrays
 
-> 📝 **How do you reshape a NumPy array? Write a program to solve following system of linear equations using NumPy: `2x + 3y = 12`, `4x - 5y = -2`. [2+4 marks] (2082 Baishakh - IOE)**
+> **How do you reshape a NumPy array? Write a program to solve following system of linear equations using NumPy: `2x + 3y = 12`, `4x - 5y = -2`. [2+4 marks] (2082 Baishakh - IOE)**
 
 **Reshaping** changes the dimensions of an array without altering its data. The total number of elements must remain the same.
 
@@ -335,7 +335,7 @@ print(np.hstack((c, d)))    # [[1,2,5,6], [3,4,7,8]]
 
 **Example — Reshape 1D to 3×4, then vstack with transpose:**
 
-> 📝 **Write a program to create a 1D NumPy array of 12 elements, reshape it into a 3×4 matrix, then vertically stack it with its transpose (after reshaping).**
+> **Write a program to create a 1D NumPy array of 12 elements, reshape it into a 3×4 matrix, then vertically stack it with its transpose (after reshaping).**
 
 ```python
 import numpy as np
@@ -352,9 +352,9 @@ print("Stacked (6×4):\n", result)
 
 ## 7.9 Arithmetic Operations with NumPy Arrays
 
-> 📝 **Write a python program to create two 2×2 NumPy arrays and perform matrix addition, subtraction and element-wise multiplication and display the result. [9 marks] (2081 Ashwin - IOE)**
+> **Write a python program to create two 2×2 NumPy arrays and perform matrix addition, subtraction and element-wise multiplication and display the result. [9 marks] (2081 Ashwin - IOE)**
 
-NumPy performs **element-wise** operations by default using standard operators.
+NumPy performs element-wise operations by default using standard operators.
 
 ```python
 import numpy as np
@@ -402,14 +402,14 @@ print(np.abs(np.array([-1, -2, 3])))  # [1, 2, 3]
 
 ## 7.10 Operations with NumPy Arrays of Different Shapes
 
-> 📝 **Write a program using NumPy to create two arrays of different shapes and demonstrate broadcasting by performing addition between them.**
+> **Write a program using NumPy to create two arrays of different shapes and demonstrate broadcasting by performing addition between them.**
 
 **Broadcasting** allows NumPy to perform operations on arrays of different shapes by automatically expanding the smaller array to match the larger one. No actual copying of data occurs — it is handled internally for efficiency.
 
 **Broadcasting rules:**
 
-- NumPy compares shapes element-wise from the **trailing dimensions** (rightmost).
-- Two dimensions are compatible if they are **equal**, or one of them is **1**.
+- NumPy compares shapes element-wise from the trailing dimensions (rightmost).
+- Two dimensions are compatible if they are equal, or one of them is 1.
 - If dimensions don't match and neither is 1, broadcasting fails with a `ValueError`.
 
 ```python
@@ -487,7 +487,7 @@ loaded_txt = np.loadtxt("data.csv", delimiter=",")
 
 ## 7.12 Applications of NumPy Random Number Generation
 
-> 📝 **Write a program to create a NumPy array of 20 random integers between 1 and 100, then find and display the mean, median, standard deviation, and variance using NumPy functions.**
+> **Write a program to create a NumPy array of 20 random integers between 1 and 100, then find and display the mean, median, standard deviation, and variance using NumPy functions.**
 
 ```python
 import numpy as np
@@ -562,7 +562,7 @@ The `numpy.linalg` module provides functions for linear algebra operations.
 
 **Solving system of linear equations** — For `Ax = b`, use `np.linalg.solve(A, b)`:
 
-> 📝 **Solve: 2x + 3y = 12, 4x - 5y = -2. [4 marks] (2082 Baishakh - IOE)**
+> **Solve: 2x + 3y = 12, 4x - 5y = -2. [4 marks] (2082 Baishakh - IOE)**
 
 ```python
 import numpy as np
