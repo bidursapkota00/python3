@@ -2,7 +2,7 @@
 
 ## 6.1 Types of Errors
 
-> **Explain different types of errors in python program. [2 marks] (2081 Ashwin - IOE)**
+> Explain different types of errors in python program. [2 marks] (2081 Ashwin - IOE)
 
 Errors in Python fall into three categories:
 
@@ -58,7 +58,7 @@ print(ZeroDivisionError.__mro__)
 
 ## 6.3 Catching and Handling Exceptions
 
-> **Define exception. You cannot divide a given number by zero. Based on given statement, write python code to handle the given exception. [2+4 marks] (2082 Baishakh - IOE)**
+> Define exception. You cannot divide a given number by zero. Based on given statement, write python code to handle the given exception. [2+4 marks] (2082 Baishakh - IOE)
 
 Exceptions are handled using the `try`-`except`-`else`-`finally` block:
 
@@ -135,7 +135,7 @@ except ValueError:
 
 ## 6.4 User-Defined Exceptions
 
-> **Write a program that defines a user-defined exception `InvalidAgeError`. Ask the user for their age; if the age is less than 0 or greater than 150, raise the custom exception with an appropriate message.**
+> Write a program that defines a user-defined exception `InvalidAgeError`. Ask the user for their age; if the age is less than 0 or greater than 150, raise the custom exception with an appropriate message.
 
 Custom exceptions are created by inheriting from the `Exception` class (or any subclass of it). This allows you to define application-specific error types with custom messages.
 
@@ -181,7 +181,7 @@ class ValidationError(AppError):
 
 ## 6.5 Debugging Programs with the Assert Statement
 
-> **Write a program that uses the `assert` statement to verify that a function `calculate_area(radius)` receives a positive radius. If assertion fails, catch the `AssertionError` and print a debug message using the `logging` module.**
+> Write a program that uses the `assert` statement to verify that a function `calculate_area(radius)` receives a positive radius. If assertion fails, catch the `AssertionError` and print a debug message using the `logging` module.
 
 The `assert` statement is a debugging tool that tests a condition. If the condition is `True`, execution continues normally. If `False`, an `AssertionError` is raised.
 
@@ -260,7 +260,7 @@ except ValueError:
 
 ## 6.7 Introduction to File Handling
 
-> **Write a python program to create a file called "record.txt" and use it to store the information of two students [Name, Roll No and college Name]. Ask user to enter the information. [4 marks] (2081 Ashwin - IOE)**
+> Write a python program to create a file called "record.txt" and use it to store the information of two students [Name, Roll No and college Name]. Ask user to enter the information. [4 marks] (2081 Ashwin - IOE)
 
 **File handling** allows programs to read from and write to files, enabling persistent data storage beyond program execution. Python uses the built-in `open()` function for all file operations.
 
@@ -358,7 +358,7 @@ with open("output.txt", "r") as f:
 
 **Example of counting words and lines, and writing the result to a new file:**
 
-> **Write a program to read a text file, count the number of words and lines, and write the result to a new file. Handle the case where the input file does not exist.**
+> Write a program to read a text file, count the number of words and lines, and write the result to a new file. Handle the case where the input file does not exist.
 
 ```python
 try:
@@ -383,7 +383,7 @@ Binary files store data in raw byte format. The `pickle` module is used to seria
 
 **Writing and reading with `pickle`:**
 
-> **Write a program that writes a list of student records (name, roll, marks) to a binary file using the `pickle` module, then reads and displays them.**
+> Write a program that writes a list of student records (name, roll, marks) to a binary file using the `pickle` module, then reads and displays them.
 
 ```python
 import pickle

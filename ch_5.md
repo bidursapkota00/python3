@@ -2,7 +2,7 @@
 
 ## 5.1 Concepts of Object-Oriented Programming
 
-> **Explain the benefits of object-oriented programming over procedural programming. [6 marks] (2082 Baishakh - IOE)**
+> Explain the benefits of object-oriented programming over procedural programming. [6 marks] (2082 Baishakh - IOE)
 
 **Procedural programming** organizes code as a sequence of instructions grouped into functions that operate on data. Data and functions are separate. Examples: C, Pascal.
 
@@ -149,7 +149,7 @@ for shape in shapes:
 
 ## 5.2 Classes and Objects
 
-> **In object-oriented programming, explain the concept of constructor. Write a python code to illustrate the concept of constructor. Define a class with `__init__()` and `__str__()` methods. [2+4 marks] (2081 Ashwin - IOE)**
+> In object-oriented programming, explain the concept of constructor. Write a python code to illustrate the concept of constructor. Define a class with `__init__()` and `__str__()` methods. [2+4 marks] (2081 Ashwin - IOE)
 
 A class is a blueprint that defines the structure and behavior of objects. An object is a concrete instance of a class, holding actual data.
 
@@ -263,7 +263,7 @@ delattr(obj, 'value')    # equivalent to del obj.value
 
 ### 5.2.4 Iterator in a Class
 
-> **Write a class `Student` with attributes `name` and `marks`. Implement an iterator in the class that iterates over the marks list.**
+> Write a class `Student` with attributes `name` and `marks`. Implement an iterator in the class that iterates over the marks list.
 
 To make a class iterable, implement the iterator protocol by defining `__iter__()` and `__next__()` methods.
 
@@ -295,7 +295,7 @@ for mark in s:
 
 ## 5.3 Aggregation and Composition
 
-> **Write a program demonstrating aggregation and composition. Create a class `Engine` and a class `Car` that contains an `Engine` object. Show how the lifetime of `Engine` depends on `Car` (composition) vs. exists independently (aggregation).**
+> Write a program demonstrating aggregation and composition. Create a class `Engine` and a class `Car` that contains an `Engine` object. Show how the lifetime of `Engine` depends on `Car` (composition) vs. exists independently (aggregation).
 
 Both aggregation and composition represent "has-a" relationships between classes. The difference lies in lifetime dependency.
 
@@ -409,7 +409,7 @@ classDiagram
 
 ## 5.4 Inheritance
 
-> **Write python code to explain the concept of Single, Hierarchical and multi-level inheritance. [6 marks] (2081 Ashwin - IOE)**
+> Write python code to explain the concept of Single, Hierarchical and multi-level inheritance. [6 marks] (2081 Ashwin - IOE)
 
 Inheritance allows a class (child/derived) to acquire attributes and methods from another class (parent/base). The child class can add new features or override inherited ones.
 
@@ -704,7 +704,7 @@ print(Child.mro())
 
 ## 5.5 Polymorphism and Dynamic Binding
 
-> **Explain the concept of dynamic binding. Write python code to illustrate concept of abstract class. [2+4 marks] (2082 Baishakh - IOE)**
+> Explain the concept of dynamic binding. Write python code to illustrate concept of abstract class. [2+4 marks] (2082 Baishakh - IOE)
 
 **Polymorphism** means "many forms". The same method name can have different behaviors depending on the object that invokes it. Python achieves polymorphism through method overriding, duck typing, and operator overloading.
 
@@ -837,7 +837,7 @@ Operator overloading allows user-defined classes to define custom behavior for b
 
 **Example: Sum of complex numbers:**
 
-> **Using concept of binary operator overloading, find the sum of complex numbers. Use class called as complex, with two attributes: [real and imaginary]. [6 marks] (2082 Baishakh - IOE)**
+> Using concept of binary operator overloading, find the sum of complex numbers. Use class called as complex, with two attributes: [real and imaginary]. [6 marks] (2082 Baishakh - IOE)
 
 ```python
 class Complex:
@@ -859,7 +859,7 @@ print(c3)               # 4 + 9i
 
 **Example: Adding Time objects:**
 
-> **Write a program to create a class called Time with attributes (hour, minute and second) to represent time and add time objects and return the result. [6 marks] (2081 Ashwin - IOE)**
+> Write a program to create a class called Time with attributes (hour, minute and second) to represent time and add time objects and return the result. [6 marks] (2081 Ashwin - IOE)
 
 ```python
 class Time:
@@ -987,7 +987,7 @@ If `__iadd__` is not defined, Python falls back to `__add__` and reassigns the r
 
 **Example: Vector class with `+`, `==`, and unary `-`:**
 
-> **Write a program that creates a class `Vector` with attributes `x` and `y`. Overload the `+` operator to add two vectors, the `==` operator to compare two vectors, and the `-` (unary) operator to negate a vector.**
+> Write a program that creates a class `Vector` with attributes `x` and `y`. Overload the `+` operator to add two vectors, the `==` operator to compare two vectors, and the `-` (unary) operator to negate a vector.
 
 ```python
 class Vector:
