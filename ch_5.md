@@ -895,23 +895,26 @@ print(t3)       # 14:16:15
 | `>>`     | `__rshift__`  |
 
 ```python
-class BitSet:
-    def __init__(self, value):
-        self.value = value
-
-    def __and__(self, other):
-        return BitSet(self.value & other.value)
+class Byte:
+    def __init__(self, val):
+        if(val > 0b11111111):
+            raise ValueError("Only positive 8 bits number is supported")
+        self.val = val
 
     def __or__(self, other):
-        return BitSet(self.value | other.value)
+        return Byte(self.val | other.val)
+
+    def __lshift__(self, offset):
+        return Byte(self.val << offset & 0xFF)
 
     def __str__(self):
-        return bin(self.value)
+        return bin(self.val)
 
-a = BitSet(0b1100)
-b = BitSet(0b1010)
-print(a & b)     # 0b1000
-print(a | b)     # 0b1110
+b1 = Byte(0b11111111)
+b2 = Byte(0b01010011)
+print(b1 | b2)     # 0b11111111
+
+print(b1 << 1)     # 0b11111110
 ```
 
 ### 5.6.3 Comparison Operators
