@@ -90,18 +90,103 @@ Python's standard library is a vast collection of modules included with every Py
 - `functools`: Higher-order functions like `reduce()`, `lru_cache`, and `partial`.
 
 ```python
+# 1. math
 import math
 print(math.sqrt(144))         # 12.0
+print(math.ceil(4.2))         # 5
+print(math.floor(4.8))        # 4
 print(math.factorial(6))      # 720
+print(math.log(100, 10))      # 2.0
 print(math.pi)                # 3.141592653589793
+print(math.e)                 # 2.718281828459045
 
+# 2. os
+import os
+cwd = os.getcwd()
+print(cwd)                                 # Current working directory
+print(os.listdir(cwd))                     # List directory contents
+# os.mkdir("new_folder")                   # Create a new directory
+path = os.path.join(cwd, "file.txt")       # Join paths safely
+# os.remove(path)                          # Remove a file
+
+# 3. sys
+import sys
+print(sys.argv)               # List of command-line arguments passed
+print(sys.path)               # List of directories Python searches for modules
+print(sys.version)            # Python version information
+# sys.exit(0)                 # Exit the program successfully
+
+# 4. datetime
 import datetime
 now = datetime.datetime.now()
-print(now.strftime("%Y-%m-%d %H:%M:%S"))
+print(now)                                 # Current date and time
+future = now + datetime.timedelta(days=5)  # Add 5 days
+print(future)
+print(now.strftime("%Y-%m-%d %H:%M:%S"))   # Format date to string
 
+# 5. random
 import random
-print(random.randint(1, 100))
-print(random.choice(["a", "b", "c"]))
+print(random.random())                     # Float between 0.0 and 1.0
+print(random.randint(1, 100))              # Integer between 1 and 100
+print(random.choice(["a", "b", "c"]))      # Choose random element
+items = [1, 2, 3, 4]
+random.shuffle(items)                      # Shuffle list in-place
+print(items)
+
+# 6. json
+import json
+data = {"name": "Alice", "age": 25}
+json_str = json.dumps(data)                # Python object to JSON string
+print(json_str)
+parsed_data = json.loads(json_str)         # JSON string to Python object
+print(parsed_data)
+# with open("data.json", "w") as f:
+#     json.dump(data, f)                   # Write Python object to JSON file
+# with open("data.json", "r") as f:
+#     loaded_data = json.load(f)           # Read JSON file into Python object
+
+# 7. collections
+import collections
+print(collections.Counter("abracadabra"))  # Count element frequencies
+dd = collections.defaultdict(int)          # Dictionary with default value
+dd["missing"] += 1
+print(dd["missing"])                       # 1
+Point = collections.namedtuple("Point", ["x", "y"])
+p = Point(10, 20)
+print(p.x, p.y)                            # 10 20
+dq = collections.deque([1, 2, 3])          # Double-ended queue
+dq.appendleft(0)
+print(dq)
+
+# 8. re
+import re
+text = "The rain in Spain"
+print(bool(re.match("The", text)))         # True (matches at the beginning)
+print(bool(re.search("rain", text)))       # True (finds anywhere)
+print(re.findall("in", text))              # ['in', 'in', 'in']
+print(re.sub("Spain", "France", text))     # "The rain in France"
+
+# 9. itertools
+import itertools
+print(list(itertools.chain([1, 2], [3, 4])))          # [1, 2, 3, 4]
+print(list(itertools.permutations([1, 2], 2)))        # [(1, 2), (2, 1)]
+print(list(itertools.combinations([1, 2, 3], 2)))     # [(1, 2), (1, 3), (2, 3)]
+# cycle_iter = itertools.cycle([1, 2])                # Infinite cycle: 1, 2, 1, 2...
+# print(next(cycle_iter), next(cycle_iter))
+
+# 10. functools
+import functools
+product = functools.reduce(lambda x, y: x * y, [1, 2, 3, 4])
+print(product)                             # 24
+
+@functools.lru_cache(maxsize=None)
+def fib(n):
+    return n if n < 2 else fib(n-1) + fib(n-2)
+print(fib(10))                             # 55
+
+def power(base, exp): return base ** exp
+square = functools.partial(power, exp=2)   # Fix 'exp' argument to 2
+print(square(5))                           # 25
 ```
 
 ## 7.3 Adding More Python Libraries
