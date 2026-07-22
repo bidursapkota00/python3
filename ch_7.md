@@ -37,11 +37,13 @@ from math import *              # import everything (this is discouraged because
 
 **Example: Custom module**
 
-> Write a Python program that creates a custom module `mathutils.py` with functions `factorial(n)`, `is_even(n)`, and `gcd(a, b)`. Import and use this module in another script.
+> Write a Python program that creates a custom module `mathutils.py` with functions `factorial(n)`, `is_even(n)`, and `add(a, b)`. Import and use this module in another script.
 
 **mathutils.py:**
 
 ```python
+# for colab users:
+# %%writefile mathutils.py
 def factorial(n):
     if n <= 1:
         return 1
@@ -50,10 +52,8 @@ def factorial(n):
 def is_even(n):
     return n % 2 == 0
 
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+def add(a, b):
+    return a + b
 ```
 
 **main.py:**
@@ -68,8 +68,8 @@ import mathutils as mu
 print(mu.is_even(4))               # True
 
 # Method 3: import specific functions
-from mathutils import gcd
-print(gcd(12, 8))                  # 4
+from mathutils import add
+print(add(12, 8))                  # 20
 ```
 
 ## 7.2 The Standard Library and Library Functions
@@ -194,6 +194,7 @@ print(square(5))                           # 25
 Third-party libraries are installed using pip (Python's package manager), which downloads packages from the Python Package Index (PyPI).
 
 ```bash
+# !pip install numpy           # ! for colab
 pip install numpy              # install a package
 pip install numpy==1.24.0      # install specific version
 pip install --upgrade numpy    # upgrade to latest version
