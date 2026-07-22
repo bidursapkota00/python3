@@ -224,17 +224,25 @@ A framework provides a complete structure and set of tools for building applicat
 
 **Data science and machine learning frameworks:**
 
+- **TensorFlow / PyTorch**: These are deep learning frameworks.
+- **Keras**: This is a high-level deep learning framework.
+
+**Other frameworks:**
+
+- **Scrapy**: This is used for web scraping.
+- **Pytest**: This is a framework for writing simple and scalable software tests.
+
+**Data science and machine learning libraries:**
+
 - **NumPy**: This is used for numerical computing with multi-dimensional arrays.
 - **Pandas**: This is used for data manipulation and analysis with DataFrames.
 - **Matplotlib**: This is used for data visualization and plotting.
 - **Scikit-learn**: This provides machine learning algorithms.
-- **TensorFlow / PyTorch**: These are deep learning frameworks.
 
-**Other frameworks:**
+**Other libraries:**
 
 - **Tkinter**: This provides GUI development and is part of the standard library.
 - **Pygame**: This is used for game development.
-- **Scrapy**: This is used for web scraping.
 
 ## 7.5 Introduction to the NumPy Library
 
