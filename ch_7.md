@@ -10,7 +10,7 @@ A **package** is a directory containing multiple modules and an `__init__.py` fi
 
 A **library** is a collection of related packages and modules bundled together to provide specific functionality (e.g., NumPy, Pandas, Requests). It is a broader, conceptual term.
 
-```
+```text
 my_library/                  # Library
 ├── __init__.py
 ├── utils.py                 # Module
@@ -18,6 +18,32 @@ my_library/                  # Library
 │   ├── __init__.py
 │   ├── engine.py            # Module
 │   └── helpers.py           # Module
+```
+
+**Example: Defining a public API with `__init__.py`**
+
+**mypackage/math_ops.py:**
+
+```python
+def add(a, b):
+    return a + b
+```
+
+**mypackage/`__init__.py`:**
+
+```python
+# Expose 'add' at the package level
+from .math_ops import add
+
+# Define what gets imported when using 'from mypackage import *'
+__all__ = ["add"]
+```
+
+**main.py:**
+
+```python
+import mypackage
+print(mypackage.add(5, 5))  # 10 (accessible directly without .math_ops)
 ```
 
 **Ways to import modules:**
@@ -112,6 +138,10 @@ path = os.path.join(cwd, "file.txt")       # Join paths safely
 # 3. sys
 import sys
 print(sys.argv)               # List of command-line arguments passed
+# python main.py input.txt output.txt
+# sys.argv[0] = "main.py"
+# sys.argv[1] = "input.txt"
+# sys.argv[2] = "output.txt"
 print(sys.path)               # List of directories Python searches for modules
 print(sys.version)            # Python version information
 # sys.exit(0)                 # Exit the program successfully
@@ -120,14 +150,15 @@ print(sys.version)            # Python version information
 import datetime
 now = datetime.datetime.now()
 print(now)                                 # Current date and time
+# YYYY-MM-DD HH:MM:SS.mmmmmm
 future = now + datetime.timedelta(days=5)  # Add 5 days
 print(future)
 print(now.strftime("%Y-%m-%d %H:%M:%S"))   # Format date to string
 
 # 5. random
 import random
-print(random.random())                     # Float between 0.0 and 1.0
-print(random.randint(1, 100))              # Integer between 1 and 100
+print(random.random())                     # Float between [0.0 and 1.0)
+print(random.randint(1, 100))              # Integer between [1 and 100]
 print(random.choice(["a", "b", "c"]))      # Choose random element
 items = [1, 2, 3, 4]
 random.shuffle(items)                      # Shuffle list in-place
@@ -202,6 +233,9 @@ pip uninstall numpy            # remove a package
 pip list                       # list installed packages
 pip freeze > requirements.txt  # export dependencies
 pip install -r requirements.txt # install from requirements file
+
+import numpy
+print(numpy.__version__)
 ```
 
 **Virtual environments** isolate project dependencies, preventing version conflicts between projects:
