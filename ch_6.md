@@ -532,7 +532,7 @@ with open("record.bin", "rb") as f:
 
 **Example of counting bytes and lines, and writing the result to a new file:**
 
-> Write a program to read a binary file, count the number of bytes and lines, and write the result to a new file.
+> Write a program to read a binary file, count the number of words and lines, and write the result to a new file. Handle the case where the input file does not exist.
 
 First Write something in `input.bin`
 
