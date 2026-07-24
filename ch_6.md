@@ -640,16 +640,27 @@ with open("sample.txt", "w+") as f:
 **Example of random access in binary mode:**
 
 ```python
-with open("data.bin", "wb") as f:
-    f.write(b"ABCDEFGHIJ")
+with open("sample.bin", "wb+") as f:
+    f.write(b"Hello, Python!")
 
-with open("data.bin", "rb") as f:
-    f.seek(3)               # move to 4th byte
-    print(f.read(4))        # b'DEFG'
+    print(f.tell())         # 14 (current position after writing)
 
-    f.seek(-3, 2)           # 3 bytes before end
-    print(f.read())         # b'HIJ'
+    f.seek(0)               # move to beginning
+    print(f.read(5))        # b'Hello'
+    print(f.tell())         # 5
 
-    f.seek(0)               # back to start
-    print(f.tell())         # 0
+    f.seek(7)               # move to position 7
+    print(f.read(7))        # b'Python!'
+
+    f.seek(0, 2)            # move to end of file
+    f.write(b" Bye!")       # append at end
+
+    f.seek(0)
+    print(f.read())         # b'Hello, Python! Bye!'
+
+    f.seek(7)               # move to 8th byte (index 7)
+    print(f.read(6))        # b'Python'
+
+    f.seek(-4, 2)           # 4 bytes before end
+    print(f.read())         # b'Bye!'
 ```
