@@ -132,11 +132,7 @@ Custom exceptions are created by inheriting from the `Exception` class (or any s
 class InvalidAgeError(Exception):
     def __init__(self, age, message="Age must be between 0 and 150"):
         self.age = age
-        self.message = message
-        super().__init__(self.message)
-
-    def __str__(self):
-        return f"{self.message}. Got: {self.age}"
+        super().__init__(f"{message}, Got: {self.age}")
 
 try:
     age = int(input("Enter your age: "))
@@ -152,7 +148,7 @@ except ValueError:
 **Output (if age = -5):**
 
 ```
-Invalid Age Error: Age must be between 0 and 150. Got: -5
+Invalid Age Error: Age must be between 0 and 150, Got: -5
 ```
 
 Best practice is to create a base exception for your application and derive specific exceptions from it:
