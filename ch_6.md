@@ -260,8 +260,6 @@ except ValueError:
 
 ## 6.7 Introduction to File Handling
 
-> Write a python program to create a file called "record.txt" and use it to store the information of two students [Name, Roll No and college Name]. Ask user to enter the information. [4 marks] (2081 Ashwin - IOE)
-
 **File handling** allows programs to read from and write to files, enabling persistent data storage beyond program execution. Python uses the built-in `open()` function for all file operations.
 
 **Types of files:**
@@ -301,24 +299,6 @@ with open("data.txt", "w") as f:
 # file is automatically closed here
 ```
 
-**Example of storing student records in a file:**
-
-```python
-with open("record.txt", "w") as f:
-    for i in range(2):
-        print(f"\nStudent {i + 1}:")
-        name = input("Enter Name: ")
-        roll = input("Enter Roll No: ")
-        college = input("Enter College Name: ")
-        f.write(f"Name: {name}, Roll: {roll}, College: {college}\n")
-
-print("\nData written to record.txt")
-
-# Reading back
-with open("record.txt", "r") as f:
-    print(f.read())
-```
-
 ## 6.9 Working with Text and Binary Files
 
 ### Text File Operations
@@ -354,6 +334,34 @@ with open("output.txt", "r") as f:
 with open("output.txt", "r") as f:
     for line in f:
         print(line.strip())
+
+# Reading character by character
+with open("output.txt", "r") as f:
+    while True:
+        ch = f.read(1)
+        if not ch:  # empty string means end of file
+            break
+        print(repr(ch))
+```
+
+**Example of storing student records in a file:**
+
+> Write a python program to create a file called "record.txt" and use it to store the information of two students [Name, Roll No and college Name]. Ask user to enter the information. [4 marks] (2081 Ashwin - IOE)
+
+```python
+with open("record.txt", "w") as f:
+    for i in range(2):
+        print(f"\nStudent {i + 1}:")
+        name = input("Enter Name: ")
+        roll = input("Enter Roll No: ")
+        college = input("Enter College Name: ")
+        f.write(f"Name: {name}, Roll: {roll}, College: {college}\n")
+
+print("\nData written to record.txt")
+
+# Reading back
+with open("record.txt", "r") as f:
+    print(f.read())
 ```
 
 **Example of counting words and lines, and writing the result to a new file:**
@@ -377,11 +385,101 @@ except FileNotFoundError:
     print("Error: input.txt not found!")
 ```
 
+**Writing and reading python object (dictionary) manually:**
+
+Before using specialized formats like JSON, you can manually format and parse structured data such as dictionaries using text files.
+
+```python
+person = {"name": "Bidur", "address": "Lalitpur"}
+loaded = {}
+
+# Writing and reading a dictionary manually
+with open("out.txt", 'w+') as f:
+    for k, v in person.items():
+        f.write(f"{k}: {v}\n")
+
+    f.seek(0)
+
+    for line in f:
+        k, v = line.split(': ')
+        loaded[k] = v.strip()
+
+print(loaded)
+```
+
+### Working with JSON Files
+
+JSON (JavaScript Object Notation) is a popular text-based data format used for storing and exchanging data. The `json` module allows you to serialize and deserialize Python objects to and from JSON format.
+
+**Writing and reading with `json`:**
+
+> Write a program that writes a list of student records to a JSON file using the `json` module, then reads and displays them.
+
+```python
+import json
+
+students = [
+    {"name": "Ram", "roll": 101, "marks": 85},
+    {"name": "Sita", "roll": 102, "marks": 92},
+]
+
+with open("students.json", "w") as f:
+    json.dump(students, f, indent=2)
+
+with open("students.json", "r") as f:
+    loaded = json.load(f)
+
+print(loaded)
+```
+
+**`json` key functions:**
+
+- `json.dump(obj, file)`: This serializes `obj` and writes it to `file` in JSON format.
+- `json.load(file)`: This reads a JSON document from `file` and deserializes it to a Python object.
+
 ### Binary File Operations
 
-Binary files store data in raw byte format. The `pickle` module is used to serialize (convert objects to bytes) and deserialize (convert bytes back to objects) Python objects.
+Binary files store data in raw byte format.
+
+```python
+# Writing bytes
+with open("data.bin", "wb") as f:
+    f.write(b'\x48\x65\x6c\x6c\x6f')    # "Hello" in bytes
+
+# Reading bytes
+with open("data.bin", "rb") as f:
+    data = f.read()
+    print(data)           # b'Hello'
+    print(data.decode())  # "Hello"
+```
+
+**Writing and reading python object (dictionary) manually:**
+
+Just like with text files, you can manually format and parse structured data in binary files by encoding strings to bytes before writing, and decoding bytes to strings after reading.
+
+```python
+person = {"name": "Bidur", "address": "Lalitpur"}
+loaded = {}
+
+# Writing and reading a dictionary manually in binary mode
+with open("out.bin", 'wb+') as f:
+    for k, v in person.items():
+        line = f"{k}: {v}\n"
+        f.write(line.encode())
+
+    f.seek(0)
+
+    for line_bytes in f:
+        line = line_bytes.decode()
+        k, v = line.split(': ')
+        loaded[k] = v.strip()
+
+print(loaded)
+```
 
 **Writing and reading with `pickle`:**
+
+The `pickle` module is used to serialize (convert objects to bytes) and deserialize (convert bytes back to objects) Python objects.
 
 > Write a program that writes a list of student records (name, roll, marks) to a binary file using the `pickle` module, then reads and displays them.
 
@@ -412,22 +510,6 @@ for s in loaded:
 
 - `pickle.dump(obj, file)`: This serializes `obj` and writes it to `file`.
 - `pickle.load(file)`: This reads from `file` and deserializes it to a Python object.
-- `pickle.dumps(obj)`: This serializes the object to bytes instead of writing it to a file.
-- `pickle.loads(bytes)`: This deserializes the object from bytes.
-
-**Writing/reading raw bytes without pickle:**
-
-```python
-# Writing bytes
-with open("data.bin", "wb") as f:
-    f.write(b'\x48\x65\x6c\x6c\x6f')    # "Hello" in bytes
-
-# Reading bytes
-with open("data.bin", "rb") as f:
-    data = f.read()
-    print(data)           # b'Hello'
-    print(data.decode())  # "Hello"
-```
 
 ## 6.10 Random File Access
 
