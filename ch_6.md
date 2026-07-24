@@ -204,11 +204,11 @@ The `logging` module provides a flexible framework for recording diagnostic mess
 
 **Logging levels** (in order of increasing severity):
 
-- `DEBUG` (10): This level provides detailed diagnostic information.
-- `INFO` (20): This level provides confirmation that things are working.
+- `DEBUG` (10): This level provides detailed diagnostic information, useful when actively troubleshooting.
+- `INFO` (20): This level provides confirmation that things are working as expected.
 - `WARNING` (30): This level indicates something unexpected but not critical. It is the default level.
-- `ERROR` (40): This level indicates a serious problem.
-- `CRITICAL` (50): This level indicates that the program may not be able to continue.
+- `ERROR` (40): This level indicates a problem; some functionality failed.
+- `CRITICAL` (50): This level indicates a serious problem; the program itself may be unable to continue.
 
 **Basic usage:**
 
@@ -217,11 +217,20 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(message)s")
 
-logging.debug("This is a debug message")
-logging.info("Informational message")
-logging.warning("Warning message")
-logging.error("Error occurred")
-logging.critical("Critical failure")
+logging.debug("Fetched 15 rows from query")
+logging.debug("Cache miss, falling back to DB")
+
+logging.info("Server started on port 8000")
+logging.info("User logged in successfully")
+
+logging.warning("Config file not found, using default settings")
+logging.warning("API response slower than usual")
+
+logging.error("Failed to save user to database")
+logging.error("Payment gateway timeout, transaction aborted")
+
+logging.critical("Database connection pool exhausted, shutting down")
+logging.critical("Out of memory, cannot allocate buffer")
 ```
 
 **Logging to a file:**
