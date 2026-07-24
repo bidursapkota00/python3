@@ -67,17 +67,6 @@ Exceptions are handled using the `try`-`except`-`else`-`finally` block:
 - **`else`**: This block executes only if no exception was raised in the `try` block.
 - **`finally`**: This block executes always, regardless of whether an exception occurred. It is used for cleanup tasks like closing files or releasing resources.
 
-```python
-try:
-    risky_code()
-except SomeException as e:
-    handle_error(e)
-else:
-    no_error_occurred()
-finally:
-    always_runs()
-```
-
 **Example of handling division by zero:**
 
 ```python
@@ -216,6 +205,8 @@ The `logging` module provides a flexible framework for recording diagnostic mess
 import logging
 
 logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(message)s")
+# In Google Colab, use force=True to override the pre-configured root logger:
+logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(message)s", force=True)
 
 logging.debug("Fetched 15 rows from query")
 logging.debug("Cache miss, falling back to DB")
@@ -241,6 +232,31 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+```
+
+**Custom named logger:**
+
+```python
+logger = logging.getLogger('auth')
+logging.basicConfig(level=logging.DEBUG, format="%(name)s - %(levelname)s: %(message)s")
+logger.error("Auth failed")
+# Output: auth - ERROR: Auth failed
+```
+
+**Note:** The `logging` format string uses the `%` (printf-style) formatting, not f-strings. This is the same `%` operator used for string formatting in Python:
+
+```python
+name = "Bidur"
+gpa = 3.75
+
+print("%s has GPA %.2f" % (name, gpa))
+
+data = {
+    "name": "Bidur",
+    "age": 25
+}
+
+print("Name: %(name)s, Age: %(age)d" % data)
 ```
 
 **Example of using assert with logging:**
