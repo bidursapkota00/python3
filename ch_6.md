@@ -34,19 +34,20 @@ An exception is a runtime error that disrupts the normal flow of program executi
 
 **Common built-in exceptions:**
 
-- `ZeroDivisionError`: This occurs upon division or modulo by zero.
-- `ValueError`: This occurs when a function receives an argument of correct type but inappropriate value.
-- `TypeError`: This occurs when an operation is applied to an object of inappropriate type.
-- `IndexError`: This occurs when a sequence index is out of range.
-- `KeyError`: This occurs when a dictionary key is not found.
-- `NameError`: This occurs when a name (variable/function) is not found in scope.
-- `AttributeError`: This occurs when an attribute reference or assignment fails.
-- `FileNotFoundError`: This occurs when the specified file does not exist.
-- `IOError` / `OSError`: This occurs when an input/output operation fails.
-- `ImportError`: This occurs when a module import fails.
-- `StopIteration`: This occurs when `next()` is called on an exhausted iterator.
-- `RecursionError`: This occurs when the maximum recursion depth is exceeded.
-- `OverflowError`: This occurs when an arithmetic result is too large to represent.
+| Exception           | Description                                                                               | Example               |
+| ------------------- | ----------------------------------------------------------------------------------------- | --------------------- |
+| `ZeroDivisionError` | This occurs upon division or modulo by zero.                                              | `10 / 0`              |
+| `ValueError`        | This occurs when a function receives an argument of correct type but inappropriate value. | `int("hello")`        |
+| `TypeError`         | This occurs when an operation is applied to an object of inappropriate type.              | `"10" + 5`            |
+| `IndexError`        | This occurs when a sequence index is out of range.                                        | `[1,2,3][5]`          |
+| `KeyError`          | This occurs when a dictionary key is not found.                                           | `{"a":1}["b"]`        |
+| `NameError`         | This occurs when a name (variable/function) is not found in scope.                        | `print(score)`        |
+| `AttributeError`    | This occurs when an attribute reference or assignment fails.                              | `"hi".append("!")`    |
+| `FileNotFoundError` | This occurs when the specified file does not exist.                                       | `open("missing.txt")` |
+| `ImportError`       | This occurs when a module import fails.                                                   | `import nonexistent`  |
+| `StopIteration`     | This occurs when `next()` is called on an exhausted iterator.                             | `next(iter([]))`      |
+| `RecursionError`    | This occurs when the maximum recursion depth is exceeded.                                 | `def f(): f()`        |
+| `OverflowError`     | This occurs when an arithmetic result is too large to represent.                          | `math.exp(1000)`      |
 
 You can view the exception hierarchy using:
 
