@@ -441,16 +441,109 @@ print(loaded)
 
 Binary files store data in raw byte format.
 
-```python
-# Writing bytes
-with open("data.bin", "wb") as f:
-    f.write(b'\x48\x65\x6c\x6c\x6f')    # "Hello" in bytes
+**Writing to a binary file:**
 
-# Reading bytes
-with open("data.bin", "rb") as f:
-    data = f.read()
-    print(data)           # b'Hello'
-    print(data.decode())  # "Hello"
+```python
+with open("output.bin", "wb+") as f:
+    f.write(b"\x48\x65\x6c\x6c\x6f\x0a")    # "Hello\n" in bytes
+    f.write(b"First line\n")          # write bytes
+    f.write(b"Second line\n")
+
+lines = [b"Line 1\n", b"Line 2\n", b"Line 3\n"]
+with open("output.bin", "wb") as f:
+    f.writelines(lines)                 # write a list of bytes
+```
+
+**Reading from a binary file:**
+
+```python
+with open("output.bin", "rb") as f:
+    content = f.read()          # read entire file as bytes
+    print(content)
+    print(content.decode())
+
+with open("output.bin", "rb") as f:
+    line = f.readline()         # read one line of bytes at a time
+    print(line)
+    print(line.decode())
+
+with open("output.bin", "rb") as f:
+    all_lines = f.readlines()   # read all lines into a list of bytes
+    print(all_lines)
+
+# Iterating line by line (memory efficient)
+with open("output.bin", "rb") as f:
+    for line in f:
+        print(line.strip())     # line is bytes, strip works on bytes too
+        print(line.decode().strip())
+
+# Reading byte by byte
+with open("output.bin", "rb") as f:
+    while True:
+        b = f.read(1)
+        if not b:  # empty bytes b'' means end of file
+            break
+        print(repr(b))
+        print(repr(b.decode()))
+```
+
+**Example of storing student records in a binary file:**
+
+> Write a python program to create a file called "record.bin" and use it to store the information of two students [Name, Roll No and college Name]. Ask user to enter the information.
+
+```python
+with open("record.bin", "wb") as f:
+    for i in range(2):
+        print(f"\nStudent {i + 1}:")
+        name = input("Enter Name: ")
+        roll = input("Enter Roll No: ")
+        college = input("Enter College Name: ")
+        record = f"Name: {name}, Roll: {roll}, College: {college}\n"
+        f.write(record.encode())
+
+print("\nData written to record.bin")
+
+# Reading back
+with open("record.bin", "rb") as f:
+    print(f.read().decode())
+```
+
+**Example of counting bytes and lines, and writing the result to a new file:**
+
+> Write a program to read a binary file, count the number of bytes and lines, and write the result to a new file.
+
+First Write something in `input.bin`
+
+```python
+with open("input.bin", "wb") as f:
+    f.write(b"Aalu re aalu\n")
+    f.write(b"Potato aalu\n")
+```
+
+Solution:
+
+```python
+try:
+    with open("input.bin", "rb") as f:
+        lines = f.readlines()
+        num_lines = len(lines)
+        num_words = sum(len(line.split()) for line in lines)
+
+    with open("result.bin", "wb") as f:
+        f.write(f"Lines: {num_lines}\n".encode())
+        f.write(f"Words: {num_words}\n".encode())
+
+    print(f"Lines: {num_lines}, Words: {num_words}")
+    print("Result written to result.bin")
+except FileNotFoundError:
+    print("Error: input.bin not found!")
+```
+
+Reading from `result.bin` for verification:
+
+```python
+with open("result.bin", "rb") as f:
+    print(f.read().decode())
 ```
 
 **Writing and reading python object (dictionary) manually:**
