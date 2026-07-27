@@ -639,6 +639,8 @@ for s in loaded:
 
 In text mode, only `seek(0)`, `seek(offset, 0)` with offsets from `tell()`, and `seek(0, 2)` are reliable. Binary mode supports all `whence` values.
 
+> Write a program to create a file containing "Hello, Python!". Using the `seek()` and `tell()` methods, demonstrate how to read "Hello", read "Python!", append " Bye!" at the end of the file, and finally display the updated file contents.
+
 ```python
 with open("sample.txt", "w+") as f:
     f.write("Hello, Python!")
