@@ -639,7 +639,7 @@ for s in loaded:
 
 In text mode, only `seek(0)`, `seek(offset, 0)` with offsets from `tell()`, and `seek(0, 2)` are reliable. Binary mode supports all `whence` values.
 
-> Write a program to create a file containing "Hello, Python!". Using the `seek()` and `tell()` methods, demonstrate how to read "Hello", read "Python!", append " Bye!" at the end of the file, and finally display the updated file contents.
+> Write a program to create a file containing "Hello, Python!". Using the `seek()` and `tell()` methods, demonstrate how to read "Hello", read "Python" (excluding the exclamation mark), append " Bye!" at the end of the file, and finally display the updated file contents.
 
 ```python
 with open("sample.txt", "w+") as f:
@@ -652,7 +652,7 @@ with open("sample.txt", "w+") as f:
     print(f.tell())         # 5
 
     f.seek(7)               # move to position 7
-    print(f.read())         # "Python!"
+    print(f.read(6))        # "Python"
 
     f.seek(0, 2)            # move to end of file
     f.write(" Bye!")        # append at end
@@ -674,7 +674,7 @@ with open("sample.bin", "wb+") as f:
     print(f.tell())         # 5
 
     f.seek(7)               # move to position 7
-    print(f.read(7))        # b'Python!'
+    print(f.read(6))        # b'Python'
 
     f.seek(0, 2)            # move to end of file
     f.write(b" Bye!")       # append at end

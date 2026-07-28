@@ -100,7 +100,7 @@ print(add(12, 8))                  # 20
 
 ## 7.2 The Standard Library and Library Functions
 
-Python's standard library is a vast collection of modules included with every Python installation ("batteries included"). No external installation is needed.
+Python's standard library is a vast collection of modules and packages included with every Python installation ("batteries included"). No external installation is needed.
 
 **Commonly used standard library modules:**
 
@@ -154,6 +154,7 @@ print(now)                                 # Current date and time
 future = now + datetime.timedelta(days=5)  # Add 5 days
 print(future)
 print(now.strftime("%Y-%m-%d %H:%M:%S"))   # Format date to string
+print(now.strftime("%Y-%m-%d, %A, %B - %I:%M:%S %p")) # YYYY-MM-DD, Day, Month - HH:MM:SS AM/PM
 
 # 5. random
 import random
@@ -259,7 +260,7 @@ A framework provides a complete structure and set of tools for building applicat
 
 **Data science and machine learning frameworks:**
 
-- **TensorFlow / PyTorch**: These are deep learning frameworks.
+- **TensorFlow / PyTorch**: These are machine learning frameworks.
 - **Keras**: This is a high-level deep learning framework.
 
 **Other frameworks:**
