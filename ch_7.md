@@ -8,7 +8,7 @@ A **module** is a single Python file (`.py`) containing functions, classes, and 
 
 A **package** is a directory containing multiple modules and an `__init__.py` file. Packages allow hierarchical structuring of modules using dot notation (e.g., `package.module`). The `__init__.py` file is executed when the package is imported and can be used to define the package's public API.
 
-A **library** is a collection of related packages and modules bundled together to provide specific functionality (e.g., NumPy, Pandas, Requests). It is a broader, conceptual term.
+A **library** is a collection of related packages and modules bundled together to provide specific functionality (e.g., NumPy, Pandas, Requests).
 
 ```text
 my_library/                  # Library
@@ -517,11 +517,11 @@ print("Power:\n", a ** 2)               # [[ 1,  4], [ 9, 16]]
 print("Modulus:\n", b % a)              # [[0, 0], [1, 0]]
 ```
 
-**Matrix multiplication** (dot product) is not element-wise:
+**Matrix multiplication:**
 
 ```python
 print("Matrix Multiply:\n", a @ b)          # [[19, 22], [43, 50]]
-print("Matrix Multiply:\n", np.dot(a, b))   # same result
+print("Matrix Multiply:\n", np.matmul(a, b))   # same result
 ```
 
 **Aggregate functions:**
@@ -537,6 +537,8 @@ print(np.mean(a))         # 3.5
 ```
 
 **Universal functions (ufuncs):**
+
+Functions that operates on all elements of the array.
 
 ```python
 a = np.array([1, 4, 9, 16])
@@ -627,8 +629,8 @@ print(data["arr1"])       # [1, 2, 3, 4, 5]
 print(data["arr2"])       # [6, 7, 8]
 
 # Save/load as text file
-np.savetxt("data.csv", a.reshape(1, -1), delimiter=",")
-loaded_txt = np.loadtxt("data.csv", delimiter=",")
+np.savetxt("data.csv", a, delimiter=",", fmt="%d")
+loaded_txt = np.loadtxt("data.csv", delimiter=",", dtype=int)
 ```
 
 ## 7.12 Applications of NumPy Random Number Generation
@@ -648,6 +650,7 @@ print("Random floats:", floats)
 
 # Random from normal distribution
 normal = np.random.randn(5)           # standard normal (mean=0, std=1)
+                                      # 5: dimensions; 2,2,3
 normal2 = np.random.normal(50, 10, 5) # mean=50, std=10, size=5
 
 # Random choice
@@ -660,6 +663,8 @@ np.random.shuffle(a)
 # Seed for reproducibility
 np.random.seed(42)
 print(np.random.randint(1, 100, 5))   # same output every time
+
+# size can be tuple of dimensions: (2,2,3)
 ```
 
 ## 7.13 Applications of NumPy Statistics
@@ -720,7 +725,7 @@ A = np.array([[2, 3],
 b = np.array([12, -2])
 
 x = np.linalg.solve(A, b)
-print(f"x = {x[0]}, y = {x[1]}")    # x = 3.0, y = 2.0
+print(f"x = {x[0]:.2f}, y = {x[1]:.2f}")    # x = 2.45, y = 2.36
 
 # Verify: A @ x should equal b
 print("Verification:", np.allclose(A @ x, b))   # True
@@ -752,7 +757,7 @@ print("Eigenvectors:\n", eigenvectors)
 print("Rank:", np.linalg.matrix_rank(A))       # 2
 
 # Norm
-print("Norm:", np.linalg.norm(A))              # Frobenius norm
+print("Norm:", np.linalg.norm(A))              # Frobenius norm (Magnitude)
 
 # Transpose
 print("Transpose:\n", A.T)
