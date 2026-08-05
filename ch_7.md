@@ -416,6 +416,23 @@ a = np.delete(a, 0)                # delete element at index 0
 # Where is used for conditional replacement
 a = np.array([1, 2, 3, 4, 5])
 result = np.where(a > 3, a, 0)     # [0, 0, 0, 4, 5]
+
+
+b = np.array([[1, 2], [3, 4]])
+
+# Append along rows (axis=0) or columns (axis=1)
+r = np.append(b, [[5, 6]], axis=0)       # [[1,2],[3,4],[5,6]]  — adds a new row
+c = np.append(b, [[10], [20]], axis=1)   # [[1,2,10],[3,4,20]]  — adds a new column
+
+# Insert a row at index 1 / a column at index 1
+r = np.insert(b, 1, [7, 8], axis=0)     # [[1,2],[7,8],[3,4]]
+c = np.insert(b, 1, [7, 8], axis=1)     # [[1,7,2],[3,8,4]] — inserted as column
+# Delete row 0 / column 1
+r = np.delete(b, 0, axis=0)             # [[3, 4]]
+c = np.delete(b, 1, axis=1)             # [[1],[3]]
+
+# Where on 2D: replace elements ≤ 2 with 0
+result = np.where(b > 2, b, 0)          # [[0,0],[3,4]]
 ```
 
 ## 7.8 Stacking and Restructuring NumPy Arrays
