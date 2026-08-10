@@ -20,32 +20,6 @@ my_library/                  # Library
 │   └── helpers.py           # Module
 ```
 
-**Example: Defining a public API with `__init__.py`**
-
-**mypackage/math_ops.py:**
-
-```python
-def add(a, b):
-    return a + b
-```
-
-**mypackage/`__init__.py`:**
-
-```python
-# Expose 'add' at the package level
-from .math_ops import add
-
-# Define what gets imported when using 'from mypackage import *'
-__all__ = ["add"]
-```
-
-**main.py:**
-
-```python
-import mypackage
-print(mypackage.add(5, 5))  # 10 (accessible directly without .math_ops)
-```
-
 **Ways to import modules:**
 
 ```python
@@ -119,106 +93,51 @@ Python's standard library is a vast collection of modules and packages included 
 # 1. math
 import math
 print(math.sqrt(144))         # 12.0
-print(math.ceil(4.2))         # 5
-print(math.floor(4.8))        # 4
-print(math.factorial(6))      # 720
-print(math.log(100, 10))      # 2.0
-print(math.pi)                # 3.141592653589793
 print(math.e)                 # 2.718281828459045
 
 # 2. os
 import os
 cwd = os.getcwd()
-print(cwd)                                 # Current working directory
-print(os.listdir(cwd))                     # List directory contents
-# os.mkdir("new_folder")                   # Create a new directory
-path = os.path.join(cwd, "file.txt")       # Join paths safely
-# os.remove(path)                          # Remove a file
+print(cwd)                    # Current working directory
 
 # 3. sys
 import sys
 print(sys.argv)               # List of command-line arguments passed
-# python main.py input.txt output.txt
-# sys.argv[0] = "main.py"
-# sys.argv[1] = "input.txt"
-# sys.argv[2] = "output.txt"
-print(sys.path)               # List of directories Python searches for modules
-print(sys.version)            # Python version information
-# sys.exit(0)                 # Exit the program successfully
 
 # 4. datetime
 import datetime
 now = datetime.datetime.now()
 print(now)                                 # Current date and time
 # YYYY-MM-DD HH:MM:SS.mmmmmm
-future = now + datetime.timedelta(days=5)  # Add 5 days
-print(future)
-print(now.strftime("%Y-%m-%d %H:%M:%S"))   # Format date to string
-print(now.strftime("%Y-%m-%d, %A, %B - %I:%M:%S %p")) # YYYY-MM-DD, Day, Month - HH:MM:SS AM/PM
 
 # 5. random
 import random
-print(random.random())                     # Float between [0.0 and 1.0)
 print(random.randint(1, 100))              # Integer between [1 and 100]
-print(random.choice(["a", "b", "c"]))      # Choose random element
-items = [1, 2, 3, 4]
-random.shuffle(items)                      # Shuffle list in-place
-print(items)
 
 # 6. json
 import json
-data = {"name": "Alice", "age": 25}
-json_str = json.dumps(data)                # Python object to JSON string
-print(json_str)
-parsed_data = json.loads(json_str)         # JSON string to Python object
-print(parsed_data)
-# with open("data.json", "w") as f:
-#     json.dump(data, f)                   # Write Python object to JSON file
-# with open("data.json", "r") as f:
-#     loaded_data = json.load(f)           # Read JSON file into Python object
+with open("data.json", "w") as f:
+    json.dump(data, f)                     # Write Python object to JSON file
 
 # 7. collections
 import collections
-print(collections.Counter("abracadabra"))  # Count element frequencies
 dd = collections.defaultdict(int)          # Dictionary with default value
 dd["missing"] += 1
 print(dd["missing"])                       # 1
-Point = collections.namedtuple("Point", ["x", "y"])
-p = Point(10, 20)
-print(p.x, p.y)                            # 10 20
-dq = collections.deque([1, 2, 3])          # Double-ended queue
-dq.appendleft(0)
-print(dq)
 
 # 8. re
 import re
 text = "The rain in Spain"
-print(bool(re.match("The", text)))         # True (matches at the beginning)
 print(bool(re.search("rain", text)))       # True (finds anywhere)
-print(re.findall("in", text))              # ['in', 'in', 'in']
-print(re.sub("Spain", "France", text))     # "The rain in France"
 
 # 9. itertools
 import itertools
-print(list(itertools.chain([1, 2], [3, 4])))          # [1, 2, 3, 4]
 print(list(itertools.permutations([1, 2], 2)))        # [(1, 2), (2, 1)]
-print(list(itertools.combinations([1, 2, 3], 2)))     # [(1, 2), (1, 3), (2, 3)]
-# cycle_iter = itertools.cycle([1, 2])                # Infinite cycle: 1, 2, 1, 2...
-# print(next(cycle_iter), next(cycle_iter))
 
 # 10. functools
 import functools
 product = functools.reduce(lambda x, y: x * y, [1, 2, 3, 4])
 print(product)                             # 24
-
-@functools.lru_cache(maxsize=None)
-def fib(n):
-    return n if n < 2 else fib(n-1) + fib(n-2)
-print(fib(10))                             # 55
-
-def power(base, exp): return base ** exp
-square = functools.partial(power, exp=2)   # Fix 'exp' argument to 2
-print(square(5))                           # 25
 ```
 
 ## 7.3 Adding More Python Libraries
@@ -361,7 +280,9 @@ print(b[2, -1])   # 9 (row 2, last col)
 
 ```python
 a = np.array([10, 20, 30, 40, 50])
-print(a[1:4])     # [20, 30, 40]
+v = a[1:4]        # view, not a copy
+v[0] = 99
+print(a)          # [10, 99, 30, 40, 50]. The original array has changed.
 print(a[:3])      # [10, 20, 30]
 print(a[::2])     # [10, 30, 50]
 print(a[::-1])    # [50, 40, 30, 20, 10]
@@ -372,23 +293,16 @@ print(b[:, 1])         # [2, 5, 8] (entire column 1)
 print(b[1, :])         # [4, 5, 6] (entire row 1)
 ```
 
-**Boolean indexing (fancy indexing):**
-
-```python
-a = np.array([10, 20, 30, 40, 50])
-print(a[a > 25])      # [30, 40, 50]
-print(a[a % 20 == 0]) # [20, 40]
-```
-
 ## 7.7 Copying and Editing NumPy Arrays
 
 **View (shallow copy):** Slicing returns a view. Modifying the view modifies the original.
 
 ```python
 a = np.array([1, 2, 3, 4, 5])
-view = a[1:4]          # view, not a copy
+view = a.view()
 view[0] = 99
-print(a)               # [1, 99, 3, 4, 5]. The original array has changed.
+print(view)        # [99, 2, 3, 4, 5]
+print(a)           # [99, 2, 3, 4, 5]. The original array has changed.
 ```
 
 **Copy (deep copy):** The `copy()` method creates an independent copy. Modifications do not affect the original.
@@ -413,10 +327,6 @@ a = np.append(a, [6, 7])           # append at end
 a = np.insert(a, 2, 99)            # insert 99 at index 2
 a = np.delete(a, 0)                # delete element at index 0
 
-# Where is used for conditional replacement
-a = np.array([1, 2, 3, 4, 5])
-result = np.where(a > 3, a, 0)     # [0, 0, 0, 4, 5]
-
 
 b = np.array([[1, 2], [3, 4]])
 
@@ -430,9 +340,6 @@ c = np.insert(b, 1, [7, 8], axis=1)     # [[1,7,2],[3,8,4]] — inserted as colu
 # Delete row 0 / column 1
 r = np.delete(b, 0, axis=0)             # [[3, 4]]
 c = np.delete(b, 1, axis=1)             # [[1],[3]]
-
-# Where on 2D: replace elements ≤ 2 with 0
-result = np.where(b > 2, b, 0)          # [[0,0],[3,4]]
 ```
 
 ## 7.8 Stacking and Restructuring NumPy Arrays
