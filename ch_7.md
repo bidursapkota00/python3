@@ -437,7 +437,7 @@ result = np.where(b > 2, b, 0)          # [[0,0],[3,4]]
 
 ## 7.8 Stacking and Restructuring NumPy Arrays
 
-> How do you reshape a NumPy array? Write a program to solve following system of linear equations using NumPy: `2x + 3y = 12`, `4x - 5y = -2`. [2+4 marks] (2082 Baishakh - IOE)
+> How do you reshape a NumPy array? [2 marks] (2082 Baishakh - IOE)
 
 **Reshaping** changes the dimensions of an array without altering its data. The total number of elements must remain the same.
 
@@ -713,7 +713,7 @@ The `numpy.linalg` module provides functions for linear algebra operations.
 
 **Solving a system of linear equations:** For `Ax = b`, use `np.linalg.solve(A, b)`:
 
-> Solve: 2x + 3y = 12, 4x - 5y = -2. [4 marks] (2082 Baishakh - IOE)
+> Write a program to solve following system of linear equations using NumPy: `2x + 3y = 12`, `4x - 5y = -2`. [4 marks] (2082 Baishakh - IOE)
 
 ```python
 import numpy as np
