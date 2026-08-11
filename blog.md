@@ -1,8 +1,8 @@
-# Python Programming Basics
+# Python Basic Guide
 
 ![Bidur Sapkota](https://www.bidursapkota.com.np/images/gravatar.webp "Bidur Sapkota - Developer")&nbsp;[Bidur Sapkota](https://www.bidursapkota.com.np/)
 
-![Python Programming Basics by Bidur Sapkota](images/python-programming-basics-1200.webp "Python Programming Basics – Blog by Bidur Sapkota")
+![Python Basic Guide by Bidur Sapkota](images/python-1200.webp "Python Basic Guide – Blog by Bidur Sapkota")
 
 ## Table of Contents
 
