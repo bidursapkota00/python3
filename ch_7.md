@@ -80,7 +80,7 @@ Python's standard library is a vast collection of modules and packages included 
 
 - `math`: Mathematical functions such as `sqrt()`, `ceil()`, `floor()`, `factorial()`, and `log()`, along with constants like `pi` and `e`.
 - `os`: Operating system interfaces such as `getcwd()`, `listdir()`, `mkdir()`, `path.join()`, and `remove()`.
-- `sys`: System-specific parameters including `argv` (command-line args), `exit()`, `path` (module search path), and `version`.
+- `sys`: System-specific parameters and functions including `argv` (command-line args), `exit()`, `path` (module search path), `version`, `setrecursionlimit()`, and `getrecursionlimit()`.
 - `datetime`: Date and time manipulation using `datetime.now()`, `timedelta`, and formatting with `strftime()`.
 - `random`: Random number generation using `random()`, `randint()`, `choice()`, and `shuffle()`.
 - `json`: JSON encoding and decoding using `dumps()`, `loads()`, `dump()`, and `load()`.
