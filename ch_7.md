@@ -207,7 +207,7 @@ A framework provides a complete structure and set of tools for building applicat
 
 **Advantages of NumPy arrays over Python lists:**
 
-- **Performance**: NumPy arrays are stored in contiguous memory and implemented in C, making operations 10 to 100 times faster than Python lists.
+- **Performance**: NumPy arrays are faster for numerical operations because they use optimized, low-level code internally.
 - **Memory efficiency**: Using a fixed data type means there is less memory overhead per element compared to Python objects.
 - **Vectorized operations**: These allow element-wise operations without explicit loops. For example, `arr * 2` multiplies every element, unlike lists.
 - **Broadcasting**: This enables operations on arrays of different shapes without manual reshaping.
