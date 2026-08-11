@@ -1,3 +1,20 @@
+# Python Programming Basics
+
+![Bidur Sapkota](https://www.bidursapkota.com.np/images/gravatar.webp "Bidur Sapkota - Developer")&nbsp;[Bidur Sapkota](https://www.bidursapkota.com.np/)
+
+![Python Programming Basics by Bidur Sapkota](images/python-programming-basics-1200.webp "Python Programming Basics – Blog by Bidur Sapkota")
+
+## Table of Contents
+
+1. [Introduction to Python Programming](#1-introduction-to-python-programming)
+2. [Basic Programming in Python](#2-basic-programming-in-python)
+3. [Advanced Data Types and Operation in Python](#3-advanced-data-types-and-operation-in-python)
+4. [Object Oriented Programming](#4-object-oriented-programming)
+5. [Exceptions and File Handling in Python](#5-exceptions-and-file-handling-in-python)
+6. [Python Libraries and Maths](#6-python-libraries-and-maths)
+
+---
+
 ## 1: Introduction to Python Programming
 
 Python is a high-level, interpreted, dynamically typed, general-purpose programming language known for its simple and readable syntax. It is widely used for web development, data science, artificial intelligence, automation, and more.
@@ -62,7 +79,7 @@ Python addresses several shortcomings of older languages:
 
 ---
 
-## 2: Basic Programming Concept in Python
+## 2: Basic Programming in Python
 
 ## 2.1 Keywords
 
